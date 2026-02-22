@@ -1,0 +1,7 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Outlet, Link } from 'react-router-dom';
+function Layout() {
+    return (_jsxs("div", { className: "min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100", children: [_jsx("nav", { className: "bg-white shadow-lg", children: _jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: _jsxs("div", { className: "flex justify-between h-16", children: [_jsx("div", { className: "flex items-center", children: _jsxs(Link, { to: "/", className: "flex items-center", children: [_jsx("h1", { className: "text-2xl font-bold text-indigo-600", children: "K-word" }), _jsx("span", { className: "ml-2 text-sm text-gray-500", children: "Korean Vocabulary Trainer" })] }) }), _jsxs("div", { className: "flex items-center space-x-4", children: [_jsx(Link, { to: "/", className: "text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium", children: "Home" }), _jsx(Link, { to: "/leaderboard", className: "text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium", children: "Leaderboard" })] })] }) }) }), _jsx("main", { children: _jsx(Outlet, {}) })] }));
+}
+export default Layout;
+//# sourceMappingURL=Layout.js.map
