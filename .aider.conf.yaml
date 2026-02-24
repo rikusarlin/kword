@@ -1,0 +1,5 @@
+model: openai/qwen/qwen3-coder-next-80b
+edit_format: whole
+map_tokens: 4096
+auto_commits: false
+yes: true
