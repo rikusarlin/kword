@@ -32,6 +32,25 @@ There are a few types of questions:
 - Node.js and npm
 - React with Tailwind in the frontend
 
+## Setup Instructions
+
+### Phase 1: Project Setup and Database Design
+1. Install dependencies:
+   ```
+   npm install
+   ```
+
+2. Run database migrations to create tables:
+   ```
+   npm run migrate
+   ```
+
+3. Test the server and database connection:
+   ```
+   npm run dev
+   ```
+   Then visit http://localhost:3001/api/health to verify the connection.
+
 ## Command examples
 Some command examples:
 - Fetching stuff from database running in container:
