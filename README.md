@@ -3,7 +3,7 @@ This project is intented to train words in Korean for English speakers.
 
 The main problem we are trying to address here is that Hangul words are difficult to remember.
 
-We are interested in basic vocabulary, which you have in TOPIK-I-1670.txt.
+We are interested in basic vocabulary, which you have in TOPIK-I-1/2/3.txt files.
  d
 There should be questions of various types to keep user's interest up. See next section.
 
