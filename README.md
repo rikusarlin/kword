@@ -3,8 +3,6 @@ This project is intented to train words in Korean for English speakers.
 
 The main problem we are trying to address here is that Hangul words are difficult to remember.
 
-The application should help me learn memorable rules for words.
-
 We are interested in basic vocabulary, which you have in TOPIK-I-1671.pdf.
 
 There should be questions of various types to keep user's interest up. See next section.

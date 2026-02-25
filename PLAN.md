@@ -8,8 +8,8 @@
 - [x] 1.5: Test database connection and setup
 
 ## Phase 2: Vocabulary Data Processing
-- [ ] 2.1: Extract vocabulary from TOPIK-I-1671.pdf
-- [ ] 2.2: Structure vocabulary data (Korean, English, images if needed)
+- [ ] 2.1: Extract vocabulary from TOPIK-I-1670.txt
+- [ ] 2.2: Structure vocabulary data (Korean, English)
 - [ ] 2.3: Create database seed script for vocabulary
 - [ ] 2.4: Seed vocabulary into database
 
