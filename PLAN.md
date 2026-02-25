@@ -8,10 +8,7 @@
 - [x] 1.5: Test database connection and setup
 
 ## Phase 2: Vocabulary Data Processing
-- [ ] 2.1: Extract vocabulary from TOPIK-I-1670.txt
-- [ ] 2.2: Structure vocabulary data (Korean, English)
-- [ ] 2.3: Create database seed script for vocabulary
-- [ ] 2.4: Seed vocabulary into database
+- [ ] 2.1: Seed vocabulary into database by reading TOPIK-I-1670.txt.
 
 ## Phase 3: Backend API Development
 - [ ] 3.1: Set up Express.js server with TypeScript

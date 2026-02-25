@@ -3,18 +3,13 @@ This project is intented to train words in Korean for English speakers.
 
 The main problem we are trying to address here is that Hangul words are difficult to remember.
 
-We are interested in basic vocabulary, which you have in TOPIK-I-1671.pdf.
-
+We are interested in basic vocabulary, which you have in TOPIK-I-1670.txt.
+ d
 There should be questions of various types to keep user's interest up. See next section.
 
 ## Question types
 There are a few types of questions:
-- Korean - English. Show 5 words in Korean, user needs to combine Korean and English words.
-    - Mixed, i.e all kinds of words
-    - Verbs only. As above, but limit to verbs.
-    - Adjectives only. As above, but limit to adjectives.
-- Match Korean words with images of the words
-- Ask questions like "What is the Hangul for 'apple'?"
+- Korean - English. Show 5 words, user needs to combine Korean and English words.
 - Select right Hangul word to a Hangul sentence, given 4 choices
 - Previous mistakes - ask a word which we've had problems with before
 
