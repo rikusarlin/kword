@@ -18,6 +18,23 @@ interface Card {
   isKorean: boolean;
 }
 
+interface SessionResponse {
+  session_id: number;
+  questions: Question[];
+}
+
+interface SubmitAnswersRequest {
+  answers: { questionId: number; selectedAnswer: string }[];
+  time_taken_seconds: number;
+}
+
+interface SubmitAnswersResponse {
+  session_id: number;
+  correct_answers: number;
+  total_questions: number;
+  accuracy: number;
+}
+
 const QuizSession = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -26,6 +43,7 @@ const QuizSession = () => {
   const { userId, nickname } = location.state || {};
   
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [sessionId, setSessionId] = useState<number | null>(null);
   const [currentMatchingIndex, setCurrentMatchingIndex] = useState(0);
   const [selectedCards, setSelectedCards] = useState<Card[]>([]);
   const [matchedPairs, setMatchedPairs] = useState<number[]>([]);
@@ -54,7 +72,7 @@ const QuizSession = () => {
           throw new Error('Failed to create session');
         }
         
-        const data = await response.json();
+        const data: SessionResponse = await response.json();
         // Sort questions: matching first, then sentence
         const sortedQuestions = [...(data.questions || [])].sort((a, b) => {
           if (a.question_type === 'matching' && b.question_type !== 'matching') return -1;
@@ -63,6 +81,7 @@ const QuizSession = () => {
         });
         
         setQuestions(sortedQuestions);
+        setSessionId(data.session_id);
       } catch (err) {
         setError('Failed to load questions. Please try again.');
         console.error(err);
@@ -189,7 +208,11 @@ const QuizSession = () => {
       // Calculate time taken (simplified for now)
       const timeTaken = 0; // Will be implemented later
       
-      const response = await fetch(`/api/sessions/${questions[0]?.id || 1}/answers`, {
+      if (!sessionId) {
+        throw new Error('Session ID not available');
+      }
+      
+      const response = await fetch(`/api/sessions/${sessionId}/answers`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -202,10 +225,17 @@ const QuizSession = () => {
         throw new Error('Failed to submit answers');
       }
       
-      const data = await response.json();
+      const data: SubmitAnswersResponse = await response.json();
+      
+      // Navigate to results page with session data
       navigate(`/results/${data.session_id}`, { 
         state: { 
-          results: data,
+          results: {
+            session_id: data.session_id,
+            correct_answers: data.correct_answers,
+            total_questions: data.total_questions,
+            accuracy: data.accuracy
+          },
           userId,
           nickname,
           questions,
@@ -213,7 +243,7 @@ const QuizSession = () => {
         } 
       });
     } catch (err) {
-      setError('Failed to submit answers. Please try again.');
+      setError(err instanceof Error ? err.message : 'Failed to submit answers. Please try again.');
       console.error(err);
     } finally {
       setLoading(false);

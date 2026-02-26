@@ -290,17 +290,17 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
 app.post('/api/sessions/:id/answers', async (req: Request, res: Response) => {
   try {
     const db = createDatabaseConnection();
-    const { session_id } = req.params;
+    const { id } = req.params;
+    const session_id = parseInt(id);
     const { answers, time_taken_seconds } = req.body;
     
     if (!answers || !Array.isArray(answers) || answers.length === 0) {
       return res.status(400).json({ error: 'Answers are required' });
     }
     
-    console.log(`session_id: ${session_id}`)
     // Get session
     const session = await db.selectFrom('session')
-      .where('id', '=', Number(session_id))
+      .where('id', '=', session_id)
       .selectAll()
       .executeTakeFirst();
     
@@ -337,7 +337,7 @@ app.post('/api/sessions/:id/answers', async (req: Request, res: Response) => {
         } else {
           // Record mistake
           mistakes.push({
-            session_id: Number(session_id),
+            session_id: session_id,
             word_id: answer.word_id,
             question_type: answer.question_type
           });
@@ -351,7 +351,7 @@ app.post('/api/sessions/:id/answers', async (req: Request, res: Response) => {
         correct_answers: correctAnswers,
         time_taken_seconds: time_taken_seconds || 0
       })
-      .where('id', '=', Number(session_id))
+      .where('id', '=', session_id)
       .execute();
     
     // Insert mistakes
@@ -404,7 +404,7 @@ app.post('/api/sessions/:id/answers', async (req: Request, res: Response) => {
     }
     
     res.json({
-      session_id: Number(session_id),
+      session_id: session_id,
       correct_answers: correctAnswers,
       total_questions: session.total_questions,
       accuracy: accuracy
