@@ -119,6 +119,47 @@ app.get('/api/words/:id/similar', async (req: Request, res: Response) => {
   }
 });
 
+// Register a mistake
+app.post('/api/mistakes', async (req: Request, res: Response) => {
+  try {
+    const db = createDatabaseConnection();
+    const { sessionId, wordId } = req.body;
+    
+    if (!sessionId || !wordId) {
+      return res.status(400).json({ error: 'Session ID and Word ID are required' });
+    }
+    
+    // Check if this mistake already exists for this session and word
+    const existingMistake = await db.selectFrom('mistake')
+      .where('session_id', '=', sessionId)
+      .where('word_id', '=', wordId)
+      .selectAll()
+      .executeTakeFirst();
+    
+    if (existingMistake) {
+      return res.json({ message: 'Mistake already recorded', id: existingMistake.id });
+    }
+    
+    // Create new mistake record
+    const mistake = await db.insertInto('mistake')
+      .values({
+        session_id: sessionId,
+        word_id: wordId,
+        question_type: 'matching'
+      })
+      .returningAll()
+      .executeTakeFirst();
+    
+    res.status(201).json({ 
+      message: 'Mistake registered', 
+      id: mistake?.id || null 
+    });
+  } catch (error) {
+    console.error('Error registering mistake:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Form a session
 app.post('/api/sessions', async (req: Request, res: Response) => {
   try {
@@ -310,36 +351,31 @@ app.post('/api/sessions/:id/answers', async (req: Request, res: Response) => {
     
     // Calculate correct answers and track mistakes
     let correctAnswers = 0;
-    const mistakes = [];
+    const mistakesToRegister = [];
     
     for (const answer of answers) {
-      if (!answer.word_id || answer.answer === undefined) {
+      if (!answer.questionId || answer.selectedAnswer === undefined) {
         continue;
       }
       
-      // Check if answer is correct (for matching and sentence questions)
+      // Get the word to check correctness
       const word = await db.selectFrom('word')
-        .where('id', '=', answer.word_id)
+        .where('id', '=', answer.questionId)
         .selectAll()
         .executeTakeFirst();
       
       if (word) {
         // Determine correctness based on question type
-        let isCorrect = false;
-        
-        if (answer.question_type === 'matching' || answer.question_type === 'sentence') {
-          // For matching and sentence questions, check if the English translation matches
-          isCorrect = answer.answer === word.english;
-        }
+        // For both matching and sentence questions, the correct answer is the English translation
+        const isCorrect = answer.selectedAnswer === word.english;
         
         if (isCorrect) {
           correctAnswers++;
         } else {
           // Record mistake
-          mistakes.push({
+          mistakesToRegister.push({
             session_id: session_id,
-            word_id: answer.word_id,
-            question_type: answer.question_type
+            word_id: answer.questionId
           });
         }
       }
@@ -354,11 +390,20 @@ app.post('/api/sessions/:id/answers', async (req: Request, res: Response) => {
       .where('id', '=', session_id)
       .execute();
     
-    // Insert mistakes
-    for (const mistake of mistakes) {
-      await db.insertInto('mistake')
-        .values(mistake)
-        .execute();
+    // Insert mistakes using the dedicated endpoint logic
+    for (const mistake of mistakesToRegister) {
+      // Check if this mistake already exists for this session and word
+      const existingMistake = await db.selectFrom('mistake')
+        .where('session_id', '=', mistake.session_id)
+        .where('word_id', '=', mistake.word_id)
+        .selectAll()
+        .executeTakeFirst();
+      
+      if (!existingMistake) {
+        await db.insertInto('mistake')
+          .values(mistake)
+          .execute();
+      }
     }
     
     // Update high scores

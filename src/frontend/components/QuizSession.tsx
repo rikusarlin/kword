@@ -158,19 +158,40 @@ const QuizSession = () => {
         setMatchedPairs(prev => [...prev, first.questionId]);
         setSelectedCards([]);
         
-        // Record the answer
+        // Record the answer - always use the English translation as the selected answer
         setAnswers(prev => {
           const existing = prev.find(a => a.questionId === first.questionId);
           if (!existing) {
-            return [...prev, { questionId: first.questionId, selectedAnswer: second.text }];
+            // Find the English card to get the correct answer
+            const englishCard = newSelection.find(c => !c.isKorean);
+            return [...prev, { questionId: first.questionId, selectedAnswer: englishCard?.text || '' }];
           }
           return prev;
         });
       } else {
-        // No match - show error briefly then clear selection
-        setTimeout(() => {
-          setSelectedCards([]);
-        }, 500);
+        // No match - record mistake for both cards and show error briefly then clear selection
+        if (sessionId) {
+          // Record the mistake for both cards - only when they don't match
+          const mistakePromises = [first, second].map(card => 
+            fetch('/api/mistakes', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                sessionId,
+                wordId: card.questionId
+              })
+            }).catch(err => {
+              console.error('Failed to record mistake:', err);
+            })
+          );
+          
+          // Wait for mistakes to be recorded
+          Promise.all(mistakePromises).then(() => {
+            setTimeout(() => setSelectedCards([]), 500);
+          });
+        } else {
+          setTimeout(() => setSelectedCards([]), 500);
+        }
       }
     }
     
@@ -199,6 +220,24 @@ const QuizSession = () => {
       }
       return [...prev, { questionId: wordId, selectedAnswer: answer }];
     });
+    
+    // Check if this is a mistake
+    const currentQuestion = questions.find(q => q.id === wordId);
+    if (currentQuestion && answer !== currentQuestion.english) {
+      // Record mistake
+      if (sessionId) {
+        fetch('/api/mistakes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sessionId,
+            wordId
+          })
+        }).catch(err => {
+          console.error('Failed to record mistake:', err);
+        });
+      }
+    }
   };
 
   const handleSubmit = async () => {
