@@ -119,7 +119,7 @@ app.get('/api/words/:id/similar', async (req: Request, res: Response) => {
   }
 });
 
-// Get session questions
+// Form a session
 app.post('/api/sessions', async (req: Request, res: Response) => {
   try {
     const db = createDatabaseConnection();
@@ -149,6 +149,14 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
     const mistakeWords = words.filter(w => mistakeWordIds.includes(w.id));
     const otherWords = words.filter(w => !mistakeWordIds.includes(w.id));
     
+    // Get sentence questions to know which words have them
+    const sentenceQuestions = await db.selectFrom('sentence_question').selectAll().execute();
+    const wordIdsWithSentences = new Set(sentenceQuestions.map(sq => sq.word_id));
+    
+    // Separate other words into those with and without sentences
+    const otherWordsWithSentences = otherWords.filter(w => wordIdsWithSentences.has(w.id));
+    const otherWordsWithoutSentences = otherWords.filter(w => !wordIdsWithSentences.has(w.id));
+    
     // Determine question distribution
     let matchingCount = 12;
     let sentenceCount = 7;
@@ -167,27 +175,63 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
       selectedMistakeWords = shuffledMistakes.slice(0, 2);
     }
     
-    // Fill remaining with other words
-    const remainingCount = (matchingCount + sentenceCount) - selectedMistakeWords.length;
-    let selectedOtherWords: typeof words = [];
+    // Fill remaining matching questions with words that don't have sentences
+    let selectedOtherWordsWithoutSentences: typeof words = [];
+    const remainingMatchingCount = matchingCount - selectedMistakeWords.length;
     
-    if (otherWords.length >= remainingCount) {
-      const shuffledOthers = [...otherWords].sort(() => Math.random() - 0.5);
-      selectedOtherWords = shuffledOthers.slice(0, remainingCount);
+    if (otherWordsWithoutSentences.length >= remainingMatchingCount) {
+      const shuffledOthers = [...otherWordsWithoutSentences].sort(() => Math.random() - 0.5);
+      selectedOtherWordsWithoutSentences = shuffledOthers.slice(0, remainingMatchingCount);
     } else {
-      // If not enough other words, use all available
-      selectedOtherWords = [...otherWords];
+      // If not enough words without sentences, use all available and adjust
+      selectedOtherWordsWithoutSentences = [...otherWordsWithoutSentences];
     }
     
-    const selectedWords = [...selectedMistakeWords, ...selectedOtherWords];
+    // Fill sentence questions with words that have sentences
+    let selectedOtherWordsWithSentences: typeof words = [];
+    if (otherWordsWithSentences.length >= sentenceCount) {
+      const shuffledOthers = [...otherWordsWithSentences].sort(() => Math.random() - 0.5);
+      selectedOtherWordsWithSentences = shuffledOthers.slice(0, sentenceCount);
+    } else {
+      // If not enough words with sentences, use all available
+      selectedOtherWordsWithSentences = [...otherWordsWithSentences];
+    }
     
-    // Ensure we have exactly 20 words (pad with random words if needed)
-    while (selectedWords.length < 20) {
-      const randomWord = words[Math.floor(Math.random() * words.length)];
-      if (!selectedWords.find(w => w.id === randomWord.id)) {
-        selectedWords.push(randomWord);
+    // Calculate how many more words we need
+    const totalSelected = selectedMistakeWords.length + 
+                          selectedOtherWordsWithoutSentences.length + 
+                          selectedOtherWordsWithSentences.length;
+    
+    const remainingCount = 20 - totalSelected;
+    
+    // Fill remaining with other words (with or without sentences as needed)
+    let selectedAdditionalWords: typeof words = [];
+    
+    if (remainingCount > 0) {
+      // Get available words not already selected
+      const selectedWordIds = new Set([
+        ...selectedMistakeWords.map(w => w.id),
+        ...selectedOtherWordsWithoutSentences.map(w => w.id),
+        ...selectedOtherWordsWithSentences.map(w => w.id)
+      ]);
+      
+      const availableWords = words.filter(w => !selectedWordIds.has(w.id));
+      
+      if (availableWords.length >= remainingCount) {
+        const shuffledAvailable = [...availableWords].sort(() => Math.random() - 0.5);
+        selectedAdditionalWords = shuffledAvailable.slice(0, remainingCount);
+      } else {
+        // If not enough words, use all available
+        selectedAdditionalWords = [...availableWords];
       }
     }
+    
+    const selectedWords = [
+      ...selectedMistakeWords,
+      ...selectedOtherWordsWithoutSentences,
+      ...selectedOtherWordsWithSentences,
+      ...selectedAdditionalWords
+    ];
     
     // Limit to 20 words
     const finalWords = selectedWords.slice(0, 20);
@@ -197,7 +241,10 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
       // Determine question type based on distribution
       let questionType: 'matching' | 'sentence';
       
-      if (index < matchingCount) {
+      // Mistake words are always matching and come first
+      if (selectedMistakeWords.some(mw => mw.id === word.id)) {
+        questionType = 'matching';
+      } else if (index < matchingCount) {
         questionType = 'matching'; // First N: matching
       } else {
         questionType = 'sentence'; // Remaining: sentence completion

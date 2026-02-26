@@ -9,6 +9,7 @@
 
 ## Phase 2: Vocabulary Data Processing
 - [x] 2.1: Seed vocabulary into database by reading TOPIK-I-1-with-classes.txt, TOPIK-I-2-with-classes.txt and TOPIK-I-3-with-classes.txt and writing to database one at a time
+- [x] 2.1: Seed sentences into database by reading TOPIK-I-1-with-classes.txt and generating a "select missing word" from 4 possibilities, using local LLM
 
 ## Phase 3: Backend API Development
 - [x] 3.1: Set up Express.js server with TypeScript
@@ -18,13 +19,13 @@
 - [x] 3.5: Create API endpoint to submit answers and track mistakes
 - [x] 3.6: Implement mistake tracking system
 - [x] 3.7: Create API endpoint to get high scores (personal and global top 10)
-- [ ] 3.8: Create API endpoint to get random words of the same type as given word id
+- [x] 3.8: Create API endpoint to get random words of the same type as given word id
 
 ## Phase 4: Frontend Project Setup
-- [ ] 4.1: Initialize React application with TypeScript
-- [ ] 4.2: Install and configure Tailwind CSS
-- [ ] 4.3: Set up routing (React Router)
-- [ ] 4.4: Create basic layout and navigation structure
+- [x] 4.1: Initialize React application with TypeScript
+- [x] 4.2: Install and configure Tailwind CSS
+- [x] 4.3: Set up routing (React Router)
+- [x] 4.4: Create basic layout and navigation structure
 
 ## Phase 5: UI Components Implementation
 - [ ] 5.1: Create nickname input screen
