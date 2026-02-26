@@ -43,10 +43,16 @@ app.post('/api/users', async (req: Request, res: Response) => {
     
     if (!user) {
       // Create new user
-      user = await db.insertInto('user')
+      const newUser = await db.insertInto('user')
         .values({ nickname })
         .returningAll()
         .executeTakeFirst();
+      
+      if (!newUser) {
+        return res.status(500).json({ error: 'Failed to create user' });
+      }
+      
+      user = newUser;
     }
     
     res.json({ id: user.id, nickname: user.nickname });
@@ -97,8 +103,8 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
     
     // Get user's mistakes
     const mistakes = await db.selectFrom('mistake')
-      .where('user_id', '=', user_id)
       .innerJoin('session', 'mistake.session_id', 'session.id')
+      .where('session.user_id', '=', user_id)
       .select(['word_id'])
       .execute();
     
@@ -118,7 +124,7 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
     const otherWords = words.filter(w => !mistakeWordIds.includes(w.id));
     
     // Ensure we have at least 2 mistake words if available
-    let selectedMistakeWords = [];
+    let selectedMistakeWords: typeof words = [];
     if (mistakeWords.length > 0) {
       // Shuffle and pick up to 2
       const shuffledMistakes = [...mistakeWords].sort(() => Math.random() - 0.5);
@@ -127,7 +133,7 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
     
     // Fill remaining with other words
     const remainingCount = questionCount - selectedMistakeWords.length;
-    let selectedOtherWords = [];
+    let selectedOtherWords: typeof words = [];
     
     if (otherWords.length >= remainingCount) {
       const shuffledOthers = [...otherWords].sort(() => Math.random() - 0.5);
@@ -186,6 +192,10 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
       })
       .returningAll()
       .executeTakeFirst();
+    
+    if (!session) {
+      return res.status(500).json({ error: 'Failed to create session' });
+    }
     
     res.json({ 
       session_id: session.id,
@@ -291,13 +301,15 @@ app.post('/api/sessions/:id/answers', async (req: Request, res: Response) => {
     
     if (!highScore) {
       // Create new high score record
+      const newUser = await db.selectFrom('user')
+        .where('id', '=', session.user_id)
+        .select('nickname')
+        .executeTakeFirst();
+      
       highScore = await db.insertInto('high_score')
         .values({
           user_id: session.user_id,
-          nickname: (await db.selectFrom('user')
-            .where('id', '=', session.user_id)
-            .select('nickname')
-            .executeTakeFirst())?.nickname || 'Unknown',
+          nickname: newUser?.nickname || 'Unknown',
           total_sessions: 1,
           average_accuracy: accuracy,
           best_session_accuracy: accuracy
@@ -378,7 +390,8 @@ app.get('/api/users/:id/mistakes', async (req: Request, res: Response) => {
     
     // Get user's mistakes with word details
     const mistakes = await db.selectFrom('mistake')
-      .where('session_id', '=', Number(id))
+      .innerJoin('session', 'mistake.session_id', 'session.id')
+      .where('session.user_id', '=', Number(id))
       .innerJoin('word', 'mistake.word_id', 'word.id')
       .select([
         'mistake.id',

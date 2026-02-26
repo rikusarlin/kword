@@ -11,14 +11,14 @@
 - [x] 2.1: Seed vocabulary into database by reading TOPIK-I-1-with-classes.txt, TOPIK-I-2-with-classes.txt and TOPIK-I-3-with-classes.txt and writing to database one at a time
 
 ## Phase 3: Backend API Development
-- [ ] 3.1: Set up Express.js server with TypeScript
-- [ ] 3.2: Create API endpoint for user registration/identification (nickname)
-- [ ] 3.3: Implement question generation logic (20 questions with correct distribution)
-- [ ] 3.4: Create API endpoint to get session questions
-- [ ] 3.5: Create API endpoint to submit answers and track mistakes
-- [ ] 3.6: Implement mistake tracking system
-- [ ] 3.7: Create API endpoint to get high scores (personal and global top 10)
-- [ ] 3.8: Create API endpoint to suggest memorable rules for mistakes
+- [x] 3.1: Set up Express.js server with TypeScript
+- [x] 3.2: Create API endpoint for user registration/identification (nickname)
+- [x] 3.3: Implement question generation logic (20 questions with correct distribution)
+- [x] 3.4: Create API endpoint to get session questions
+- [x] 3.5: Create API endpoint to submit answers and track mistakes
+- [x] 3.6: Implement mistake tracking system
+- [x] 3.7: Create API endpoint to get high scores (personal and global top 10)
+- [ ] 3.8: Create API endpoint to get random words of the same type as given word id
 
 ## Phase 4: Frontend Project Setup
 - [ ] 4.1: Initialize React application with TypeScript
