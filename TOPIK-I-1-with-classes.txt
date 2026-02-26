@@ -1,0 +1,500 @@
+가게;store, shop;noun
+가격;price;noun
+가구;furniture;noun
+가깝다;close;adjective
+가끔;sometimes;other
+가다;go;verb
+가르치다;teach;verb
+가방;bag;noun
+가볍다;light;adjective
+가수;singer;noun
+가슴;chest, breast;noun
+가요;song;noun
+가운데;middle;noun
+가위;scissors;noun
+가을;autumn, fall;noun
+가장;most;noun
+가져가다;take away;verb
+가져오다;bring;verb
+가족;family;noun
+가지;branch;noun
+가지다;have;verb
+각;each;noun
+간;while;noun
+간단하다;simple, easy;adjective
+간단히;simply;other
+간식;snack;noun
+간장;soy sauce;noun
+간호사;nurse;noun
+갈비;Galvi, spareribs;noun
+갈비탕;Galbitang, spareribs soup;noun
+갈색;brown;noun
+갈아타다;transfer;verb
+감;persimmon;noun
+감기;cold;noun
+감기약;cold medicine;noun
+감다;close ~ (eyes);verb
+감동;sensation;noun
+감동하다;be impressed;verb
+감사;thank;noun
+감사드립니다;thank you;other
+감사하다;thank, appreciate;verb
+감사합니다;thank you;other
+감자;potato;noun
+감자탕;Gamjatang, potato soup;noun
+갑자기;suddenly;other
+값;price;noun
+강;river;noun
+강아지;puppy;noun
+강좌;lecture;noun
+갖다;have;other
+같다;same;adjective
+같이;together;other
+개;dog, ~ piece(s);noun
+개나리;forsythia;noun
+개인;individual;noun
+거기;there;noun
+거리;street;noun
+거실;living room;noun
+거울;mirror;noun
+거의;almost, nearly;other
+거짓말;lie;noun
+걱정;anxiety, concern;noun
+걱정하다;worry;verb
+건강;health;noun
+건강하다;be healthy;adjective
+건너가다;cross (a road);verb
+건너다;cross over;verb
+건너편;other side, opposite side;noun
+건물;building;noun
+건배;cheers, toast;noun
+걷다;walk;verb
+걸다;bet, call;verb
+걸리다;get caught, take (time);verb
+걸어가다;walk (go);verb
+걸어오다;walk (come);verb
+검은색;black;noun
+것;that, thing, it;noun
+게임;game;noun
+겨울;winter;noun
+겨울방학;winter vacation;noun
+결과;result;noun
+결정;decision;noun
+결정하다;decide;verb
+결혼;marriage;noun
+결혼식;wedding ceremony;noun
+결혼하다;get married;verb
+경기;competition, game;noun
+경기장;stadium, arena;noun
+경복궁;Gyeongbokgung;noun
+경주;Gyeongju;noun
+경찰;police;noun
+경찰관;police officer;noun
+경찰서;police office;noun
+경치;view, landscape;noun
+경험;experience;noun
+계단;stairs;noun
+계란;egg;noun
+계산하다;calculate;verb
+계속;continue;noun
+계시다;be, exist (honorific form);verb
+계절;season;noun
+계획;plan;noun
+고기;meat;noun
+고등학교;high school;noun
+고등학생;high school student;noun
+고르다;choose;verb
+고마웠습니다;Thank you (past tense);other
+고맙다;thank;adjective
+고맙습니다;Thank you;other
+고모;paternal aunt;noun
+고모부;paternal uncle;noun
+고속버스;express bus;noun
+고양이;cat;noun
+고장;broken, malfunction;noun
+고추;red pepper;noun
+고추장;Kochujang, red pepper paste;noun
+고치다;fix;verb
+고프다;hungry;adjective
+고향;hometown;noun
+곧;soon;other
+골목;alley;noun
+골프;golf;noun
+곱다;beautiful;adjective
+곳;place;noun
+공;ball;noun
+공간;space;noun
+공기;air;noun
+공무원;public official;noun
+공부;study;noun
+공부하다;study;verb
+공연;show, public performance;noun
+공원;park;noun
+공중전화;payphone, public phone;noun
+공짜;free;noun
+공책;notebook, note;noun
+공항;airport;noun
+공휴일;public holiday;noun
+과;division;noun
+과거;past;noun
+과일;fruit;noun
+과자;snack;noun
+과학;science;noun
+관계;relation;noun
+관광하다;travel, sightsee;verb
+관심;attention, interest;noun
+광고;advertisement;noun
+괜찮다;be okay;adjective
+괜찮습니다;It's fine.;other
+교과서;textbook;noun
+교수;professor;noun
+교실;classroom;noun
+교체;substitute, change;noun
+교통;traffic;noun
+교통사고;traffic accident;noun
+교회;church;noun
+구;9;noun
+구경하다;take a look;verb
+구두;shoes;noun
+구름;cloud;noun
+구십;90;noun
+구월;September;noun
+구하다;save, seek, get;verb
+국;soup;noun
+국내;domestic;noun
+국립;nationalestablished, state;adjective
+국수;noodle;noun
+국어;Korean language;noun
+국적;nationality, country of citizenship;noun
+국제;international;noun
+군인;soldier, military personnel;noun
+굽다;bake;verb
+권;~ book(s);noun
+귀;ear;noun
+귀엽다;cute;adjective
+규칙;rule;noun
+귤;mandarin orange;noun
+그;it;other
+그거;it;noun
+그것;it;noun
+그곳;there;noun
+그날;that day;noun
+그냥;just, as it is;other
+그동안;meantime, meanwhile, up to now;noun
+그들;them, they;noun
+그때;then, at that time;noun
+그래;Yes, Yeah;other
+그래서;so, thus;other
+그램;gram;noun
+그러나;but, however;other
+그러니까;so, because;other
+그러면;then, if so;other
+그런;then, such;other
+그런데;by the way, however;other
+그럼;then;other
+그렇게;like that, so;other
+그렇구나;well, I see.;other
+그렇다;Yes, that's it.;adjective
+그렇습니다;That's right.;other
+그렇지만;nevertheless, but;other
+그릇;bowl, container, tableware;noun
+그리고;and;other
+그리다;draw;verb
+그림;drawing, picture;noun
+그만;stop, finish;other
+그분;his, the person;noun
+그저께;day before yesterday;noun
+그중;among them;noun
+그쪽;there, the person;noun
+그치다;stop, end, cease;verb
+극장;theater, cinema;noun
+근처;nearby, neighborhood;noun
+글;post, sentence, character;noun
+글쎄요;I do not know., well, I guess ~;other
+금방;soon, a little while ago;noun
+금연;no smoking;noun
+금요일;Friday;noun
+금주;abstinence, temperance;noun
+급;class, grade;noun
+급하다;hurry, urgent;adjective
+기간;term, period;noun
+기다리다;wait;verb
+기르다;cultivate, grow;verb
+기름;oil, gasoline;noun
+기분;feeling;noun
+기뻐하다;glad, delight;verb
+기쁘다;happy;adjective
+기사;article, driver, engineer;noun
+기숙사;dormitory;noun
+기억하다;remember;verb
+기온;temperature;noun
+기자;reporter;noun
+기차;train;noun
+기침;cough;noun
+기타;other;noun
+긴장되다;be nervous;adjective
+길;way, road;noun
+길다;long;adjective
+김;seaweed;noun
+김밥;Kimbab;noun
+김치;Kimchi;noun
+김치찌개;Kimchi stew;noun
+김포공항;Gimpo International Airport;noun
+까만색;black color;noun
+까맣다;black;adjective
+깎다;cut, shave;verb
+깜짝;startled, surprised;noun
+깨끗하다;clean;adjective
+깨다;wake up, crack, break;verb
+깨지다;chip, crack, break;verb
+꺼내다;take out;verb
+껌;chewing gum;noun
+꼭;exactly, absolutely;other
+꽃;flower;noun
+꽃집;florist;noun
+꾸다;dream;verb
+꿈;dream;noun
+끄다;turn off, extinguish, stop;verb
+끓이다;boil;verb
+끝;end;noun
+끝나다;finish, end;verb
+끝내다;finish;verb
+끼다;put on, plug, (fog) rolls in;verb
+나;I;noun
+나가다;go out, get out;verb
+나누다;share, divide;verb
+나다;occur, come out;verb
+나라;country;noun
+나무;tree;noun
+나빠지다;spoil, deteriorate;verb
+나쁘다;bad;adjective
+나오다;come out, appear;verb
+나이;age, old;noun
+나중;later, after;noun
+나타나다;appear;verb
+나흘;four days;noun
+낚시;fishing;noun
+날;day;noun
+날씨;weather;noun
+날짜;date;noun
+남;south, man;noun
+남기다;leave;verb
+남녀;men and women;noun
+남대문시장;Namdaemun market;noun
+남동생;younger brother;noun
+남미;South America;noun
+남북;north and south;noun
+남자;man;noun
+남쪽;south;noun
+남편;husband;noun
+남학생;male student;noun
+낮;day, noon, during the day;noun
+낮다;low;adjective
+내;of mine, my;other
+내가;I;noun
+내과;internal medicine;noun
+내년;next year;noun
+내다;pay, put out;verb
+내려가다;go down;verb
+내려오다;come down;verb
+내리다;go down;verb
+내용;content;noun
+내일;tomorrow;noun
+냄비;pot;noun
+냄새;smell;noun
+냉면;cold noodle;noun
+냉장고;refrigerator;noun
+너;you;noun
+너무;too, very;other
+넓다;wide;adjective
+넘다;exceed, more than;verb
+넘어지다;fall down, fall;verb
+넣다;put in;verb
+네;yes, 4;noun
+넥타이;necktie;noun
+넷;4;noun
+넷째;fourth;noun
+년;year;noun
+노란색;yellow color;noun
+노랗다;yellow;adjective
+노래;song;noun
+노래방;Karaoke shop;noun
+노래하다;sing;verb
+노력하다;endeavor, strive;verb
+노트;note;noun
+녹색;green;noun
+녹차;green tea;noun
+놀다;play;verb
+놀라다;be surprised;verb
+농구;basketball;noun
+높다;high;adjective
+놓다;put;verb
+누가;who;noun
+누구;who;noun
+누나;sister (as seen from the younger brother);noun
+누르다;press down, push;verb
+눈;eye, snow;noun
+눈물;tear;noun
+눈사람;snowman;noun
+눈싸움;staring contest, snowball fight;noun
+눕다;lie down, sleep;verb
+뉴스;news;noun
+뉴욕;New York;noun
+느끼다;feel;verb
+느낌;feeling;noun
+느리다;slow;adjective
+늘;always;other
+늘다;gain, increase;verb
+능력;ability;noun
+늦다;late, delay;verb
+늦잠;overslept, sleeping in late;noun
+님;Sir;noun
+다;all, whole;other
+다녀오다;return, come back;verb
+다니다;go, commute;verb
+다르다;different;adjective
+다른;other ~, another ~, different ~;other
+다리;bridge, leg, foot;noun
+다섯;5;noun
+다시;again;other
+다음;next, after;noun
+다음달;next month;noun
+다음주;next week;noun
+다음해;next year, following year;noun
+다이어트;diet;noun
+다치다;hurt;verb
+닦다;wipe, polish;verb
+단어;word;noun
+단점;disadvantage, shortcoming, drawback;noun
+닫다;close;verb
+닫히다;shut, close;verb
+달;month, moon;noun
+달걀;egg;noun
+달다;sweet;adjective
+달러;dollar;noun
+달력;calendar;noun
+달리다;run;verb
+닭;chicken, hen;noun
+닭고기;chicken;noun
+닮다;resemble;verb
+담그다;dip, pickle;verb
+담배;tobacco;noun
+답장;reply;noun
+당근;carrot;noun
+당신;you;noun
+대;versus, large;noun
+대답;answer;noun
+대답하다;answer, reply;verb
+대부분;mostly, almost;noun
+대사관;embassy;noun
+대학;university, college;noun
+대학교;university, college;noun
+대학생;college student;noun
+대학원;graduate school;noun
+대학원생;postgraduate student, graduate student;noun
+대한민국;Republic of Korea, South Korea;noun
+대화;conversation, dialogue;noun
+대회;competition, tournament;noun
+댁;house;noun
+더;more;noun
+더럽다;dirty;adjective
+더운물;hot water;noun
+덕분;thanks for, thanks to;noun
+덥다;hot;adjective
+덮다;cover;verb
+데리다;bring, take along;verb
+데이트;date, dating;noun
+도로;road;noun
+도서관;library;noun
+도시;city;noun
+도와주다;help;verb
+도움;help, assistance;noun
+도착;arrival;noun
+도착하다;arrive;verb
+도쿄;Tokyo;noun
+독서;reading;noun
+독서실;reading room;noun
+독서하다;read;verb
+독일;Germany;noun
+돈;money;noun
+돌아가다;return, go back;verb
+돌아오다;come back, come home;verb
+돕다;help;verb
+동네;town, neighborhood;noun
+동대문시장;Dongdaemun market;noun
+동물;animal;noun
+동생;brother, sister;noun
+동아리;club, group;noun
+동안;during, between;noun
+동양;eastern, orient;noun
+동전;coin;noun
+동쪽;east;noun
+돼지;pig;noun
+돼지고기;pork;noun
+되다;become;verb
+된장;fermented soybean paste;noun
+된장국;soybean paste soup;noun
+된장찌개;soybean paste stew;noun
+두;two;noun
+두껍다;thick;adjective
+두다;put;verb
+두부;tofu;noun
+두부찌개;tofu soup;noun
+둘;2;noun
+둘째;second, the second of~;noun
+뒤;rear, back;noun
+뒤쪽;behind, back, towards the rear;noun
+드라마;drama;noun
+드리다;give;verb
+드시다;eat (honorific form);verb
+듣기;listening, hearing;noun
+듣다;listen;verb
+들;field, ~s,;noun
+들다;hold, enter;verb
+들어가다;go in, enter;verb
+들어오다;come in, enter;verb
+등;etc, back;noun
+등산;hiking, mountain-climbing;noun
+등산복;mountaineering clothing;noun
+등산화;hiking boots, climbing shoes;noun
+디브이디;DVD;noun
+디자인;design;noun
+따뜻하다;warm;adjective
+따라가다;follow;verb
+따라오다;come with, follow;verb
+따로;separately;other
+따르다;follow;verb
+딸;daughter;noun
+딸기;strawberry;noun
+땀;sweat;noun
+때;time;noun
+때문;because, for ~, so~;other
+떠나다;leave;verb
+떠들다;chatter, make a noise;verb
+떡;rice cake;noun
+떡국;rice cake soup;noun
+떡볶이;Toppogi;noun
+떨어지다;drop;verb
+또;in addition, again;other
+또는;or;other
+똑같다;same;adjective
+똑바로;upright, straight;other
+뛰다;run;verb
+뜨겁다;hot;adjective
+뜨다;rise, open (the eyes);verb
+뜻;meaning;noun
+라디오;radio;noun
+라면;ramen;noun
+러시아;Russia;noun
+로션;skin lotion;noun
+마늘;garlic;noun
+마르다;dry;adjective
+마리;~ animal(s), ~ head(s);noun
+마시다;drink;verb
+마음;mind, feeling;noun
+마지막;last;noun
+마치다;finish, end;verb
+마흔;40;noun
+막히다;be blocked, be clogged;verb
+만;only, ten thousand;noun
+만나다;meet;verb

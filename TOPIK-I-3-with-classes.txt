@@ -1,0 +1,670 @@
+어리다;young;adjective
+어린이;child;noun
+어머;oh, well;other
+어머니;mother;noun
+어머님;mother;noun
+어서;hurry, quickly;other
+어울리다;look good on, befit;verb
+어저께;yesterday;other
+어제;yesterday;other
+어젯밤;last night;noun
+언니;sister (as seen from the younger sister);noun
+언제;when;other
+언제나;always, anytime;other
+얼굴;face;noun
+얼마나;how much;other
+얼음;ice;noun
+엄마;mom;noun
+없다;none, no, not;adjective
+없이;without;other
+에어컨;air conditioner;noun
+엔;yen;noun
+엘리베이터;elevator;noun
+여권;passport;noun
+여기;here;other
+여기저기;here and there;other
+여덟;8;number
+여동생;younger sister;noun
+여든;80;number
+여러;various, many;other
+여러가지;several, various;noun
+여러분;everyone, ladies and gentlemen;noun
+여름;summer;noun
+여보?;hello (casual);other
+여섯;6;number
+여자;woman;noun
+여학생;female student;noun
+여행;travel;noun
+여행사;travel agency, travel firm;noun
+역;station;noun
+역사;history;noun
+연락처;contact information;noun
+연세;age (honorific form);noun
+연습;practice;noun
+연습하다;practice;verb
+연예인;celebrity;noun
+연필;pencil;noun
+연휴;consecutive holidays;noun
+열;10;number
+열다;open;verb
+열리다;be opened;verb
+열쇠;key;noun
+열심히;hard, enthusiastic;other
+열차;train;noun
+엽서;postcard;noun
+영;spirit, zero;noun
+영국;The United Kingdom;noun
+영상;video;noun
+영어;English;noun
+영어회화;English conversation;noun
+영하;minus, below zero;other
+영화;movie;noun
+영화관;movie theater;noun
+영화배우;movie star;noun
+영화표;movie ticket;noun
+옆;side;noun
+예;yes;other
+예문;example, model sentence;noun
+예쁘다;pretty, beautiful;adjective
+예순;60;number
+예약;reservation;noun
+옛날;a long ago, olden days;noun
+오;5;number
+오늘;today;other
+오다;come;verb
+오래;long, much;other
+오래간만;after a long time;other
+오래간만입니다;Long time no see.;other
+오랜만;after a long time;other
+오랜만에;after a long time;other
+오랫동안;for a long time;other
+오렌지;orange;noun
+오르다;climb;verb
+오른쪽;right side, right;noun
+오리;duck;noun
+오빠;brother (as seen from the younger sister);noun
+오십;50;number
+오월;May;noun
+오이;cucumber;noun
+오전;morning, a.m.;other
+오징어;squid;noun
+오후;afternoon;other
+올라가다;go up;verb
+올라오다;come up;verb
+올려놓다;put on, place;verb
+올림픽;olympic;noun
+올해;this year;noun
+옮기다;move, transfer, translate;verb
+옷;dress, clothes;noun
+옷가게;clothing store;noun
+옷장;closet;noun
+와이셔츠;shirt;noun
+왜;why;other
+왜냐하면;because;other
+외국;foreign country;noun
+외국어;foreign language;noun
+외국인;foreigner;noun
+외롭다;lonely;adjective
+외삼촌;maternal uncle;noun
+외숙모;maternal aunt;noun
+외출하다;go out;verb
+외할머니;maternal grandmother;noun
+외할아버지;maternal grandfather;noun
+왼쪽;left;noun
+요금;fee;noun
+요르단;Jordan;noun
+요리;cooking, cuisine;noun
+요일;day of the week;noun
+요즘;nowadays, around this time, lately;other
+우리;we, us;noun
+우리나라;our country, South Korea;noun
+우산;umbrella;noun
+우선;first;other
+우유;milk;noun
+우체국;post office;noun
+우표;stamp;noun
+운동;exercise;noun
+운동복;sportswear, gym clothes;noun
+운동선수;athlete;noun
+운동장;playground, athletic field;noun
+운동하다;exercise;verb
+운동화;sports shoes;noun
+운전하다;drive;verb
+울다;cry;verb
+울리다;make cry, chime;verb
+움직이다;move;verb
+웃기다;funny, make someone laugh;verb
+웃다;laugh;verb
+원;won (currency units of Korea);noun
+원피스;one-piece dress;noun
+원하다;want, wish, desire;verb
+월;month;noun
+월급;monthly salary;noun
+월드컵;world cup;noun
+월세;monthly rent;noun
+월요일;Monday;noun
+웬일;for some reason, What was it?;other
+위;top, up;noun
+위치;location, position;noun
+위하다;for, in favor of, for the sake of;other
+위험하다;dangerous;adjective
+유럽;Europe;noun
+유리;glass;noun
+유명하다;famous;adjective
+유월;June;noun
+유학;study abroad;noun
+유학생;foreign student, international student;noun
+유행;trend;noun
+육;6;number
+육십;60;number
+은행;bank;noun
+은행원;bank clerk;noun
+음료수;drink, soft drink;noun
+음반;record;noun
+음식;food, cooking;noun
+음악;music;noun
+음악가;musician;noun
+응;Yeah (answer);other
+의미;meaning;noun
+의사;doctor;noun
+의자;chair;noun
+이;this, tooth, 2;noun
+이거;this;noun
+이것;this;noun
+이곳;this place, here;noun
+이따가;later;other
+이런;this, such ~;other
+이렇게;like this, so, in this way;other
+이렇다;like this;adjective
+이름;name;noun
+이메일;e-mail;noun
+이모;maternal aunt;noun
+이모부;maternal uncle;noun
+이번;this time;other
+이분;this person;noun
+이사;move, moving;noun
+이상;more than, strange;noun
+이상하다;strange, funny, weird;adjective
+이십;20;number
+이야기;story;noun
+이야기하다;talk;verb
+이용;usage;noun
+이용하다;use;verb
+이월;February;noun
+이유;reason;noun
+이제;now;other
+이집트;Egypt;noun
+이쪽;this way, here, this person;noun
+이틀;two days;noun
+이해;understanding;noun
+이해하다;understand;verb
+인;sign, ~ person(s);noun
+인구;population;noun
+인기;popularity;noun
+인기스타;popular star;noun
+인도;India;noun
+인사;greetings;noun
+인사하다;greet;verb
+인삼;ginseng;noun
+인상;impression;noun
+인천;Incheon;noun
+인터넷;internet;noun
+인터뷰하다;interview;verb
+인형;doll;noun
+일;work, 1, day;noun
+일곱;7;number
+일기;diary;noun
+일기예보;weather forecast;noun
+일본;Japan;noun
+일본드라마;Japanese drama;noun
+일본말;Japanese language;noun
+일본사람;Japanese people;noun
+일본어;Japanese language;noun
+일본요리;Japanese food;noun
+일상생활;everyday life;noun
+일식;Japanese style, Japanese food;noun
+일어나다;rise, stand, occur;verb
+일어서다;get up, stand up;verb
+일요일;Sunday;noun
+일월;January;noun
+일주일;one week;noun
+일찍;early;other
+일하다;work;verb
+일흔;70;number
+읽기;reading;noun
+읽다;read;verb
+잃다;lose;verb
+잃어버리다;lose;verb
+입;mouth;noun
+입구;entrance;noun
+입다;put on, wear;verb
+입원하다;hospitalize;verb
+입학;admission;noun
+있다;have, there;verb
+잊다;forget;verb
+잊어버리다;forget;verb
+자;character, Here we go.;other
+자기;myself, own;noun
+자다;sleep;verb
+자동차;car, automobile;noun
+자동차회사;car company;noun
+자료;material, document;noun
+자르다;cut;verb
+자리;seat, location;noun
+자신;myself, own;noun
+자연;nature;noun
+자유;freedom;noun
+자장면;Jajangmyeon;noun
+자전거;bicycle;noun
+자주;often;other
+작년;last year;noun
+작다;small;adjective
+작은아버지;uncle;noun
+작은어머니;aunt;noun
+잔;glass, ~ cup(s);noun
+잔치;party, feast;noun
+잘;well;other
+잘못;mistake;noun
+잘생기다;handsome;adjective
+잘하다;do well, good at;verb
+잠;slumbers, sleep;noun
+잠깐;for a while, a little;other
+잠시;for a bit, for a while, a little;other
+잠자다;sleep, go to bed;verb
+잡다;catch, grab, hold;verb
+잡수시다;eat (honorific form);verb
+잡지;magazine;noun
+장;~ chapter(s), ~ sheet(s);noun
+장갑;gloves;noun
+장마;rainy season;noun
+장마철;rainy season;noun
+장미;rose;noun
+장소;place;noun
+장점;advantage;noun
+재료;material;noun
+재미없다;not funny, uninteresting;adjective
+재미있다;interesting;adjective
+재킷;jacket;noun
+저;that;noun
+저거;that;noun
+저것;that;noun
+저곳;over there;noun
+저기;there, over there;other
+저녁;dinner, evening, night;noun
+저녁식사;dinner;noun
+저렇게;like that, in that way;other
+저분;that person;noun
+저쪽;there, over there;noun
+저희;we;noun
+적;enemy;noun
+적다;be few, write down;verb
+전;all, before;noun
+전공;major;noun
+전기자동차;electric car;noun
+전자사전;electronic dictionary;noun
+전하다;tell;verb
+전혀;not at all;other
+전화;telephone;noun
+전화기;telephone;noun
+전화번호;phone number;noun
+절;~ section(s), temple;noun
+절대;never, absolutely;other
+젊다;young;adjective
+점;point;noun
+점수;score, point;noun
+점심;lunch;noun
+점심시간;lunchtime;noun
+점심식사;lunch;noun
+점원;clerk;noun
+점퍼;jacket;noun
+젓가락;chopsticks;noun
+정거장;station, depot;noun
+정도;degree;noun
+정류장;station, bus stop;noun
+정리하다;straighten out, organize;verb
+정말;really, truly;other
+정문;front door, main gate;noun
+정보;information;noun
+정하다;choose, establish;verb
+제가;I;noun
+제목;title;noun
+제일;most;noun
+제주도;Jeju Island;noun
+조금;a little;other
+조사하다;investigate;verb
+조선;shipbuilding, Korea;noun
+조선말;Korean language;noun
+조선어;Korean language;noun
+조심하다;be careful, warn;verb
+조용하다;silent, quiet;adjective
+조용히;quietly;other
+조카;nephew;noun
+졸업;graduation;noun
+졸업하다;graduate;verb
+좀;a little;other
+좀더;a little more;other
+좁다;narrow;adjective
+종로;Jong-ro;noun
+종류;kind, type;noun
+종업원;employee;noun
+종이;paper;noun
+종일;all day;other
+좋다;good;adjective
+좋아하다;like;verb
+죄송하다;sorry;adjective
+주;week;noun
+주다;give;verb
+주로;mainly;other
+주말;weekend;noun
+주머니;pocket, pouch;noun
+주무시다;sleep, rest;verb
+주문하다;order;verb
+주변;around;noun
+주부;housewife;noun
+주사;injection;noun
+주소;address;noun
+주스;juice;noun
+주위;around;noun
+주인;owner;noun
+주차장;parking lot;noun
+주차하다;park;verb
+주황색;orange color;noun
+죽;bamboo, porridge;noun
+죽다;die;verb
+준비;preparation;noun
+준비하다;prepare;verb
+줄;line, column, string;noun
+줄다;shrink, decrease;verb
+중;medium, during;noun
+중국;China;noun
+중국어;Chinese;noun
+중국집;Chinese restaurant;noun
+중식;Chinese cuisine;noun
+중심;center;noun
+중요;importance;noun
+중요하다;important;adjective
+중학교;middle school, Junior high school;noun
+중학생;middle school student;noun
+즐거워하다;have fun;verb
+즐겁다;fun, be pleasant;adjective
+즐기다;enjoy, have fun;verb
+증세;symptom, medical condition;noun
+지각;tardy, being late;noun
+지갑;wallet;noun
+지금;now;other
+지나다;pass by;verb
+지난달;last month;noun
+지난번;last time;noun
+지난주;last week;noun
+지내다;stay, spend, live;verb
+지다;lose;verb
+지도;map;noun
+지방;fat, region;noun
+지우개;eraser;noun
+지키다;protect;verb
+지하;underground;noun
+지하도;underpass;noun
+지하철;subway;noun
+지하철역;subway station;noun
+직업;job, profession;noun
+직원;employee, staff;noun
+직장;workplace;noun
+직접;directly, direct;other
+진달래;azalea;noun
+질;quality;noun
+질문;question;noun
+질문하다;ask a question;verb
+짐;load, baggage;noun
+집;house, shop;noun
+짓다;build, create;verb
+짜다;salty, make (the plan);verb
+짜리;a value (won coin);noun
+짧다;short;adjective
+쪽;side, page;noun
+쯤;about, around ~;other
+찌개;stew, soup;noun
+찍다;pierce, take (a photo), press;verb
+차;car, tea;noun
+차갑다;cold;adjective
+차다;kick;verb
+차리다;prepare, arrange;verb
+착하다;be good, friendly;adjective
+참;really, very;other
+창문;window;noun
+찾다;find, visit;verb
+찾아가다;go to visit;verb
+찾아오다;come to visit;verb
+채소;vegetable;noun
+책;book;noun
+책방;bookstore;noun
+책상;desk;noun
+책임;responsibility;noun
+책장;bookshelf;noun
+처음;first, for the first time;noun
+처음이야! 반가워.;Nice to meet you. (casual);other
+천;1000;noun
+천천히;slowly;other
+철;iron, season;noun
+첫;first;noun
+첫째;first;noun
+청바지;blue jeans;noun
+청소기;vacuum cleaner;noun
+청소하다;sweep, clean;verb
+초;~second(s);noun
+초대하다;invite;verb
+초등학교;elementary school;noun
+초등학생;elementary student;noun
+초록색;green color;noun
+초콜릿;chocolate;noun
+촬영하다;take a picture;verb
+최고;best, the highest;noun
+추다;dance;verb
+추석;Chusoku (Korean Thanksgiving Day);noun
+추억;memory;noun
+축구;football, soccer;noun
+축제;festival;noun
+축하;celebration;noun
+축하하다;celebrate;verb
+축하합니다;congratulations;other
+출구;exit;noun
+출근하다;go to work;verb
+출발;start, departure;noun
+출발하다;depart;verb
+출장;business trip;noun
+춤;dance;noun
+춤추다;dance;verb
+춥다;cold;adjective
+취미;hobby;noun
+취소하다;cancel;verb
+취직하다;get a job;verb
+층;layer, ~ floor;noun
+치과;dentist, dentistry;noun
+치료하다;treat;verb
+치마;skirt;noun
+치약;toothpaste;noun
+친구;friend;noun
+친절하다;be kind;adjective
+친척;relative;noun
+친하다;close, familiar;adjective
+칠;7;number
+칠십;70;number
+칠월;July;noun
+칠판;blackboard;noun
+침대;bed;noun
+칫솔;toothbrush;noun
+카드;card;noun
+카레;curry;noun
+카메라;camera;noun
+카페;cafe, coffee shops;noun
+칼;knife, cutlary, swords;noun
+캐나다;Canada;noun
+커피;coffee;noun
+커피숍;coffee shop;noun
+컴퓨터;computer, PC;noun
+컵;cup;noun
+케이크;cake;noun
+켜다;turn on (the light, the power, etc.);verb
+코;nose;noun
+코트;coat;noun
+코피;nosebleed;noun
+콜라;Coke;noun
+콧노래;humming;noun
+콧물;snot, nasal discharge;noun
+콩;bean, soy;noun
+크기;size;noun
+크다;big, large;adjective
+크리스마스;Christmas;noun
+큰아버지;uncle;noun
+큰어머니;aunt;noun
+키;key, height;noun
+킬로그램;kilogram;noun
+킬로미터;kilometer;noun
+타다;ride, get on;verb
+타월;towel;noun
+탁구;table tennis;noun
+태국;Thailand;noun
+태권도;Taekwondo;noun
+태어나다;be born;verb
+태풍;typhoon;noun
+택시;taxi;noun
+탤런트;entertainers;noun
+터미널;terminal;noun
+테니스;tennis;noun
+테이블;table;noun
+텔레비전;TV;noun
+토마토;tomato;noun
+토요일;Saturday;noun
+통;barrel, ~ package(s);noun
+통장;bank book, (deposit) passbook;noun
+통하다;pass, lead;verb
+퇴근하다;leave the office;verb
+특별히;especially;other
+특징;characteristic, feature;noun
+특히;especially, in particular;other
+틀다;turn on (the switch);verb
+틀리다;wrong;adjective
+티셔츠;t-shirt;noun
+팀;team;noun
+파;wave, green onion;noun
+파란색;blue color;noun
+파랗다;blue;adjective
+파티;party;noun
+팔;8;number
+팔다;sell;verb
+팔리다;sell, be sold;verb
+팔십;80;number
+팔월;August;noun
+패션;fashion;noun
+퍼센트;percent;noun
+페이지;page;noun
+펜;pen;noun
+펴다;spread, stretch;verb
+편;side, episode;noun
+편지;letter;noun
+편하다;comfortable, easy, convenient;adjective
+평양;Pyongyang;noun
+평일;weekday;noun
+포도;grape;noun
+포장;packing;noun
+표;table, ticket;noun
+표현;expression;noun
+푹;deeply;other
+풀;pool, grass;noun
+풀다;solve;verb
+프랑스;France;noun
+프로그램;program;noun
+프린트;print;noun
+피;blood;noun
+피곤하다;tired;adjective
+피다;bloom;verb
+피아노;piano;noun
+피우다;smoke, bloom;verb
+피자;pizza;noun
+필름;film;noun
+필요;necessity;noun
+필요하다;need;verb
+필통;pencil case;noun
+하나;1;noun
+하늘;sky;noun
+하늘색;sky blue, light blue;noun
+하다;do, say;verb
+하루;one day;noun
+하숙;boarding house, lodging house;noun
+하숙집;boarding house, lodging house;noun
+하얀색;white color;noun
+하얗다;white;adjective
+하지만;but, however;other
+학;crane;noun
+학교;school;noun
+학기;semester;noun
+학년;grade, school year;noun
+학생;student;noun
+학생증;student ID card;noun
+학원;academy, school;noun
+한;one, one of the ~;noun
+한강;Han River, Hangang;noun
+한국;Korea;noun
+한국드라마;Korean drama;noun
+한국말;Korean language;noun
+한국사람;Korean people;noun
+한국어;Korean language;noun
+한국요리;Korean cuisine;noun
+한글;Hangul;noun
+한번;once;other
+한복;Hanbok, Korean traditional clothes;noun
+한식;Korean cuisine;noun
+한자;Chinese character;noun
+할머니;grandmother;noun
+할아버지;grandfather;noun
+할인;sale, discount;noun
+함께;together;other
+합격;pass;noun
+항상;always;other
+해;year, sun;noun
+해외;overseas;noun
+해외여행;overseas trip;noun
+핸드폰;cell phone, mobile phone;noun
+햄버거;hamburger;noun
+햇빛;sunshine, sunlight;noun
+행복;happiness;noun
+행복하다;happy;adjective
+행사;event;noun
+허리;waist, hip;noun
+현금;cash;noun
+현재;now, current;noun
+형;brother (as seen from the younger brother);noun
+형님;big brother (honorific form);noun
+형제;sibling;noun
+호;No. ~;other
+호랑이;tiger;noun
+호주;Australia;noun
+호텔;hotel;noun
+혼자;alone;noun
+홈페이지;home page;noun
+홍차;black tea;noun
+화;anger;noun
+화가;artist, painter;noun
+화나다;angry;adjective
+화내다;get angry;verb
+화요일;Tuesday;noun
+화장실;restroom, toilet, lavatory;noun
+화장품;cosmetics;noun
+화장하다;makeup;verb
+확인하다;confirm, check;verb
+환영하다;welcome;verb
+환자;patient;noun
+회사;company;noun
+회사원;employee;noun
+회색;grey;noun
+회의;conference;noun
+횡단보도;crosswalk;noun
+후;after;other
+후배;Junior;noun
+휴가;vacation, holiday;noun
+휴대전화;cell phone, mobile phone;noun
+휴일;holiday;noun
+휴지;toilet paper;noun
+휴지통;trash can;noun
+흐리다;cloudy;adjective
+흰색;white color;noun
+힘;power;noun

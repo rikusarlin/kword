@@ -1,0 +1,500 @@
+만두;dumpling;noun
+만들다;make, create;verb
+만일;if, should;other
+만지다;touch;verb
+만화;comic book, cartoon;noun
+많다;many;adjective
+많이;a lot of, many;other
+말;word, talk;noun
+말씀;words, remarks;noun
+말씀하다;talk;verb
+말하기;speaking;noun
+말하다;say, talk;verb
+맑다;clear, clean;adjective
+맛;flavor, taste;noun
+맛없다;not delicious;adjective
+맛있다;delicious;adjective
+맞다;right, fit, correct;verb
+맞습니다;That's right.;other
+맞아요;That's right.;other
+맞은편;across, the other side, opposite;noun
+매다;tie;verb
+매우;extremely, very;other
+매일;everyday;noun
+매주;every week;noun
+맥주;beer;noun
+맵다;spicy;adjective
+머리;head, hair;noun
+먹다;eat;verb
+먼저;first, first of all, before;noun
+멀다;far, distant, long;adjective
+멋있다;cool, nice;adjective
+메뉴;menu;noun
+메다;shoulder, carry;verb
+메모;memo;noun
+메시지;message;noun
+멕시코;Mexico;noun
+며칠;a few days, what date;noun
+면도;razor, shaving;noun
+명;~ person(s);noun
+명절;holidays, annual events;noun
+몇;a few, a number of;other
+모두;all, everyone;noun
+모레;the day after tomorrow;noun
+모르겠습니다;I don't know.;other
+모르다;do not know;verb
+모시다;take you, serve you (honorific form);verb
+모양;shape, form, style;noun
+모으다;collect, gather;verb
+모이다;gather, get together;verb
+모임;meeting, gathering;noun
+모자;hat;noun
+목;neck, throat;noun
+목걸이;necklace;noun
+목소리;voice;noun
+목요일;Thursday;noun
+목욕;bath, bathing;noun
+목욕하다;take a bath;verb
+목적;purpose;noun
+몸;body;noun
+몸살;sickness, disease that comes from fatigue;noun
+못하다;~ can not do;verb
+몽골;Mongolia;noun
+무;radish;noun
+무겁다;heavy;adjective
+무궁화;rose of sharon;noun
+무료;free;noun
+무릎;knee;noun
+무리;swarm, unreasonable;noun
+무섭다;scary;adjective
+무슨;what;other
+무엇;what;noun
+무엇이;what;noun
+무역;trade;noun
+무용;dance;noun
+무척;very;other
+문;door, gate;noun
+문구점;stationery store;noun
+문장;sentence;noun
+문제;problem;noun
+문화;culture;noun
+묻다;ask;verb
+물;water;noun
+물건;stuff, thing;noun
+물론;sure, of course;other
+물어보다;ask;verb
+뭐;what;noun
+미국;The United States;noun
+미래;future;noun
+미리;in advance, beforehand;other
+미술;art;noun
+미술관;art gallery, art museum;noun
+미안하다;sorry;adjective
+미안합니다;I'm sorry.;other
+미용실;beauty salon;noun
+미터;meter;noun
+민속촌;folk village;noun
+밀가루;flour;noun
+밀리다;be shaved, be pushed;verb
+밑;bottom, below;noun
+바꾸다;change;verb
+바뀌다;be changed;verb
+바나나;banana;noun
+바다;sea;noun
+바닷가;beach;noun
+바라다;hope;verb
+바람;wind;noun
+바로;immediately, soon, just;other
+바르다;right, paint, wear;verb
+바쁘다;busy;adjective
+바이올린;violin;noun
+바지;pants;noun
+박물관;museum;noun
+박수;clap, applause;noun
+밖;out, outside;noun
+반;half, group;noun
+반갑다;nice to meet, happy;adjective
+반갑습니다;Nice to meet you.;other
+반년;half a year;noun
+반달;half-moon;noun
+반바지;shorts;noun
+반지;ring;noun
+반찬;side dish;noun
+받다;receive;verb
+발;foot, leg;noun
+발가락;toe(s);noun
+발음;pronunciation;noun
+발전;development;noun
+발표;announcement, presentation;noun
+밝다;bright;adjective
+밤;night;noun
+밥;rice, meal;noun
+방;room;noun
+방법;way, method;noun
+방송;broadcast;noun
+방송국;broadcast stations;noun
+방학;vacation;noun
+배;ship, stomach, pear;noun
+배고프다;hungry;adjective
+배구;volleyball;noun
+배달;delivery;noun
+배부르다;be full (I am full.);adjective
+배우;actor;noun
+배우다;learn;verb
+배탈;stomachache;noun
+백;100;noun
+백화점;department store;noun
+버리다;abandon, throw away;verb
+버스;bus;noun
+번;~ time(s);noun
+번호;number;noun
+벌다;earn, make money;verb
+벌써;already;other
+벗다;take off (clothes, shoes);verb
+벚꽃;cherry blossom;noun
+베이징;Beijing;noun
+베트남;Vietnam;noun
+벽;wall;noun
+변호사;lawyer;noun
+별;star;noun
+별로;not really;other
+병;illness, ~ bottle(s);noun
+병원;hospital;noun
+보내다;send, spend;verb
+보다;see;verb
+보도;sidewalk, report;noun
+보이다;show, look;verb
+보통;usually, normally, in general;noun
+복숭아;peach;noun
+복잡하다;complicated, crowded;adjective
+볶다;fry;verb
+볶음밥;fried rice;noun
+볼펜;ballpoint pen;noun
+봄;spring;noun
+봉지;bag;noun
+봉투;envelope;noun
+뵙다;meet;verb
+부동산;real estate;noun
+부드럽다;soft, friendly;adjective
+부르다;call, sing;verb
+부모;parents;noun
+부부;couple, husband and wife, married couple;noun
+부산;Busan;noun
+부업;sideline;noun
+부엌;kitchen;noun
+부인;wife, Mrs.;noun
+부장;director;noun
+부지런하다;diligent;adjective
+부치다;send, fry, transmit;verb
+부탁;request, please;noun
+부탁하다;beg, ask;verb
+북쪽;North;noun
+분;~ person(s), ~ minute(s);noun
+분위기;#N/A;noun
+불;fire, electrical light;noun
+불고기;Bulgogi, grilled meat;noun
+불다;blow (wind or whistle, musical instruments, etc.);verb
+불편하다;uncomfortable, inconvenient;adjective
+붓다;pour;verb
+붙다;stick, pass a test;verb
+붙이다;attach, stick;verb
+브라질;Brazil;noun
+블라우스;blouse;noun
+비;rain;noun
+비누;soap;noun
+비디오;video;noun
+비밀;secret;noun
+비빔밥;Bibimbap, mixed rice;noun
+비슷하다;similar, like;adjective
+비싸다;expensive;adjective
+비행기;airplane;noun
+비행장;airfield, airport;noun
+빌딩;building;noun
+빌리다;borrow, lend;verb
+빠르다;fast;adjective
+빨간색;red color;noun
+빨갛다;red;adjective
+빨다;suck, do laundry;verb
+빨래;laundry, wash;noun
+빨리;quickly;other
+빵;bread;noun
+빵집;bakery;noun
+빼다;remove, pull, pull out;verb
+뿐;only;other
+사;4;noun
+사거리;intersection, four corners;noun
+사계절;four seasons;noun
+사고;accident;noun
+사과;apple;noun
+사다;buy;verb
+사람;person, man;noun
+사랑;love;noun
+사랑하다;love;verb
+사례;case, example;noun
+사무실;office;noun
+사물;object, thing;noun
+사십;40;noun
+사업가;entrepreneur, businessman;noun
+사용하다;use;verb
+사원;temple, employee;noun
+사월;April;noun
+사이;between, while;noun
+사이다;cider;noun
+사이즈;size;noun
+사인하다;sign;verb
+사장;CEO, the president;noun
+사전;dictionary;noun
+사진;picture, photo;noun
+사진기;camera;noun
+사촌;cousin;noun
+사탕;candy;noun
+사흘;3 days;noun
+산;mountain;noun
+산책;walk;noun
+살;flesh, ~ year(s) old;noun
+살다;live;verb
+삼;3;noun
+삼거리;intersection, three-way intersection;noun
+삼계탕;Samgyetang;noun
+삼십;30;noun
+삼월;March;noun
+삼촌;paternal uncle;noun
+상관;relation;noun
+상자;box;noun
+상처;wound, scratch;noun
+상품;product;noun
+새;bird, new;noun
+새로;newly;other
+새벽;dawn, late at night, early morning;noun
+새우;shrimp;noun
+색;color;noun
+색깔;color;noun
+샌드위치;sandwich;noun
+생각;thinking, thought;noun
+생각되다;be considered, it seems~;verb
+생각하다;think;verb
+생기다;form, arise;verb
+생선;fish;noun
+생신;birthday (honorific form);noun
+생일;birthday;noun
+생활;life;noun
+샤워하다;take a shower;verb
+샴푸;shampoo;noun
+서다;stand;verb
+서로;each other, both;noun
+서류;document;noun
+서른;30;noun
+서비스;service;noun
+서양;western, west;noun
+서울;Seoul;noun
+서울역;Seoul station;noun
+서점;bookstore;noun
+서쪽;west, western;noun
+선물;gift, present;noun
+선배;elder, senior;noun
+선생님;teacher;noun
+선수;player;noun
+선택하다;choose, select;verb
+선풍기;fan;noun
+설거지;washing dishes, dish-washing;noun
+설날;Lunar New Year;noun
+설렁탕;Seolleongtang;noun
+설명;explanation, description;noun
+설명하다;explain;verb
+설악산;Mt. Seorak;noun
+설탕;sugar;noun
+섬;island;noun
+성;castle, last name;noun
+성격;personality;noun
+성함;name;noun
+세계;world;noun
+세수하다;wash;verb
+세우다;set up, formulate;verb
+세일하다;have a sale;verb
+세탁기;washing machine;noun
+세탁소;dry cleaners, laundromat;noun
+센터;center;noun
+센티미터;centimeter;noun
+셋;3;noun
+셋째;third;noun
+소;small, cow;noun
+소개;introduction;noun
+소개하다;introduce;verb
+소고기;beef;noun
+소금;salt;noun
+소리;sound, voice;noun
+소설;novel;noun
+소설가;novelist;noun
+소식;news;noun
+소파;sofa;noun
+소포;parcel;noun
+소풍;picnic, trip;noun
+소화제;peptic, digestive;noun
+속;inside;noun
+손;hand;noun
+손가락;finger;noun
+손님;customer;noun
+손수건;handkerchief;noun
+송이;bunch, flower, cluster;noun
+쇼핑;shopping;noun
+수건;towel, washcloth;noun
+수도;capital, water supply;noun
+수돗물;tap water;noun
+수박;watermelon;noun
+수술하다;operate on for;verb
+수업;class, lesson;noun
+수영;swimming;noun
+수영복;swimsuit;noun
+수영장;swimming pool;noun
+수요일;Wednesday;noun
+수저;chopsticks and a spoon;noun
+수첩;note, notebook;noun
+수학;mathematics;noun
+숙제;homework;noun
+순서;order, turn;noun
+숟가락;spoon;noun
+술;alcohol, liquor;noun
+쉬다;rest;verb
+쉰;50;noun
+쉽다;easy;adjective
+슈퍼마켓;supermarket;noun
+스물;20;noun
+스웨터;sweater;noun
+스케이트;skate;noun
+스키;ski, skiing;noun
+스키장;ski resort;noun
+스타;star;noun
+스타킹;stockings;noun
+스트레스;stress;noun
+스페인어;Spanish;noun
+스포츠;sport;noun
+슬퍼하다;sorrow, mourn;verb
+슬프다;sad;adjective
+습관;habit;noun
+시;city, time;noun
+시간;time;noun
+시간표;schedule, timetable;noun
+시계;clock;noun
+시골;countryside;noun
+시끄럽다;noisy;adjective
+시내;downtown, city, stream;noun
+시다;sour;adjective
+시디;CD;noun
+시민;citizen;noun
+시설;facility;noun
+시외;suburbs;noun
+시원하다;cool, refresh;adjective
+시월;October;noun
+시작;start;noun
+시작되다;begin;verb
+시작하다;start, begin;verb
+시장;market;noun
+시청;city hall;noun
+시키다;make someone do, order;verb
+시험;exam, test;noun
+식당;restaurant, cafeteria;noun
+식사;meal;noun
+식탁;table;noun
+신;god, new;noun
+신다;put on, wear;verb
+신문;newspaper;noun
+신발;shoes, footwear;noun
+신청서;application forms;noun
+신청하다;put in for, apply for;verb
+실례;excuse;noun
+실례하다;be excused;verb
+실수;mistake, failure;noun
+싫다;hate;adjective
+싫어하다;dislike, hate;verb
+심하다;severe, terrible;adjective
+십;10;noun
+십이월;December;noun
+십일월;November;noun
+싱겁다;not salty;adjective
+싶다;want;verb
+싸다;cheap, wrap;verb
+싸우다;fight;verb
+쌀;rice;noun
+쌀밥;cooked rice;noun
+쌓이다;stack up, pile up;verb
+썰다;chop, cut;verb
+쓰기;writing, dictation;noun
+쓰다;write, use, wear (glasses);verb
+쓰레기;garbage;noun
+쓰이다;be written, be used;verb
+씨;seed, Mr. ~;noun
+씩;each, every, per;other
+씹다;chew, bite;verb
+씻다;wash;verb
+아가씨;Miss, daughter;noun
+아기;baby, toddler;noun
+아까;earlier, while ago;noun
+아내;wife;noun
+아뇨;no;other
+아니다;no;other
+아니오;no;other
+아니요;no;other
+아들;son;noun
+아랍어;Arabic;noun
+아래;bottom, under;noun
+아름답다;beautiful;adjective
+아마;maybe, perhaps;other
+아무;any;noun
+아버님;father;noun
+아버지;father;noun
+아빠;dad;noun
+아시아;Asia;noun
+아이;child;noun
+아이스크림;ice cream;noun
+아저씨;uncle, mister;noun
+아주;very, completely;other
+아주머니;old lady, madame, aunt;noun
+아줌마;old lady, madame, aunt;noun
+아직;yet, still;other
+아침;morning, breakfast;noun
+아침밥;breakfast;noun
+아침식사;breakfast;noun
+아파트;apartment, mansion;noun
+아프다;painful, sick;adjective
+아프리카;Africa;noun
+아홉;9;noun
+아흔;90;noun
+악기;musical instrument;noun
+안;within, not ~;other
+안경;glasses;noun
+안내하다;guide, invite;verb
+안녕하세요;hi, hello;other
+안녕하십니까;hello;other
+안다;embrace, cradle;verb
+안전하다;safe;adjective
+앉다;sit;verb
+알다;know;verb
+알리다;inform;verb
+알맞다;fit, appropriate;adjective
+알았습니다;I understood.;other
+앞;front, previous;noun
+애;child;noun
+액세서리;accessory;noun
+야구;baseball;noun
+야채;vegetable;noun
+약;about, medicine;noun
+약간;slightly, a little;other
+약국;pharmacy;noun
+약사;pharmacist;noun
+약속;appointment, promise;noun
+얇다;thin;adjective
+양;amount, sheep;noun
+양말;socks;noun
+양복;suit;noun
+양식;form, western style;noun
+양파;onion;noun
+얘기하다;talk;verb
+어깨;shoulder;noun
+어느;which, how;other
+어둡다;dark;adjective
+어디;where;noun
+어떤;which, what;other
+어떻게;how;other
+어떻다;how;adjective
+어렵다;difficult;adjective
+어른;adult;noun
