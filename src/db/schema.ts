@@ -9,7 +9,7 @@ export interface WordTable {
   id: Generated<number>
   korean: string
   english: string
-  part_of_speech: 'noun' | 'verb' | 'adjective'
+  part_of_speech: 'noun' | 'verb' | 'adjective' | 'other'
   image_url: string | null
   memorable_rule: string | null
   created_at: Generated<Date>

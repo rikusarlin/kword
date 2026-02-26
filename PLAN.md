@@ -8,7 +8,7 @@
 - [x] 1.5: Test database connection and setup
 
 ## Phase 2: Vocabulary Data Processing
-- [ ] 2.1: Seed vocabulary into database by reading TOPIK-I-1-with-classes.txt, TOPIK-I-2-with-classes.txt and TOPIK-I-3-with-classes.txt and writing to database one at a time
+- [x] 2.1: Seed vocabulary into database by reading TOPIK-I-1-with-classes.txt, TOPIK-I-2-with-classes.txt and TOPIK-I-3-with-classes.txt and writing to database one at a time
 
 ## Phase 3: Backend API Development
 - [ ] 3.1: Set up Express.js server with TypeScript

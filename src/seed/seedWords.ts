@@ -1,63 +1,33 @@
 import { createDatabaseConnection } from '../db/schema';
+import * as fs from 'fs';
+import * as path from 'path';
 
-// Sample vocabulary data for seeding
-const sampleVocabulary = [
-  {
-    korean: '사과',
-    english: 'apple',
-    part_of_speech: 'noun' as const
-  },
-  {
-    korean: '물',
-    english: 'water',
-    part_of_speech: 'noun' as const
-  },
-  {
-    korean: '책',
-    english: 'book',
-    part_of_speech: 'noun' as const
-  },
-  {
-    korean: '학교',
-    english: 'school',
-    part_of_speech: 'noun' as const
-  },
-  {
-    korean: '친구',
-    english: 'friend',
-    part_of_speech: 'noun' as const
-  },
-  {
-    korean: '밥',
-    english: 'rice/meal',
-    part_of_speech: 'noun' as const
-  },
-  {
-    korean: '물다',
-    english: 'to bite',
-    part_of_speech: 'verb' as const
-  },
-  {
-    korean: '가다',
-    english: 'to go',
-    part_of_speech: 'verb' as const
-  },
-  {
-    korean: '보다',
-    english: 'to see/look',
-    part_of_speech: 'verb' as const
-  },
-  {
-    korean: '예쁘다',
-    english: 'to be pretty',
-    part_of_speech: 'adjective' as const
-  },
-  {
-    korean: '크다',
-    english: 'to be big',
-    part_of_speech: 'adjective' as const
+async function parseVocabularyFile(filePath: string): Promise<Array<{korean: string, english: string, part_of_speech: 'noun' | 'verb' | 'adjective' | 'other'}>> {
+  const content = fs.readFileSync(filePath, 'utf-8');
+  const lines = content.trim().split('\n');
+  
+  const vocabulary: Array<{korean: string, english: string, part_of_speech: 'noun' | 'verb' | 'adjective' | 'other'}> = [];
+  
+  for (const line of lines) {
+    const parts = line.split(';');
+    if (parts.length >= 3) {
+      const korean = parts[0].trim();
+      const english = parts[1].trim();
+      const partOfSpeech = parts[2].trim() as 'noun' | 'verb' | 'adjective' | 'other';
+      
+      // Only include words with valid parts of speech
+      if (partOfSpeech === 'noun' || partOfSpeech === 'verb' || partOfSpeech === 'adjective' || partOfSpeech === 'other') {
+        vocabulary.push({
+          korean,
+          english,
+          part_of_speech: partOfSpeech
+        });
+      }
+    }
   }
-];
+  
+  return vocabulary;
+}
 
 async function seedWords() {
   const db = createDatabaseConnection();
@@ -65,23 +35,40 @@ async function seedWords() {
   try {
     console.log('Seeding vocabulary data...');
     
-    for (const word of sampleVocabulary) {
-      try {
-        await db.insertInto('word')
-          .values({
-            korean: word.korean,
-            english: word.english,
-            part_of_speech: word.part_of_speech,
-            created_at: new Date()
-          })
-          .execute();
-        console.log(`Inserted word: ${word.korean} (${word.english})`);
-      } catch (error) {
-        console.error(`Error inserting word ${word.korean}:`, error);
+    // Read all three TOPIK files
+    const baseDir = path.resolve(__dirname, '../../');
+    const files = [
+      path.join(baseDir, 'TOPIK-I-1-with-classes.txt'),
+      path.join(baseDir, 'TOPIK-I-2-with-classes.txt'),
+      path.join(baseDir, 'TOPIK-I-3-with-classes.txt')
+    ];
+
+    let totalWords = 0;
+    
+    for (const file of files) {
+      console.log(`Processing ${path.basename(file)}...`);
+      const vocabulary = await parseVocabularyFile(file);
+      
+      for (const word of vocabulary) {
+        try {
+          await db.insertInto('word')
+            .values({
+              korean: word.korean,
+              english: word.english,
+              part_of_speech: word.part_of_speech,
+              created_at: new Date()
+            })
+            .execute();
+          totalWords++;
+        } catch (error) {
+          console.error(`Error inserting word ${word.korean}:`, error);
+        }
       }
+      
+      console.log(`Inserted ${vocabulary.length} words from ${path.basename(file)}`);
     }
     
-    console.log('Seeding completed!');
+    console.log(`Seeding completed! Total words inserted: ${totalWords}`);
   } catch (error) {
     console.error('Error seeding database:', error);
     process.exit(1);
