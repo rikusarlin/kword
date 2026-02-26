@@ -8,7 +8,8 @@
     "start": "node dist/server.js",
     "dev": "ts-node src/server.ts",
     "migrate": "ts-node src/migrations/createTables.ts",
-    "seed": "ts-node src/seed/seedWords.ts",
+    "seed:words": "ts-node src/seed/seedWords.ts",
+    "seed:questions": "ts-node src/seed/generateSentenceQuestions.ts",
     "test:db": "ts-node src/db/testConnection.ts"
   },
   "dependencies": {

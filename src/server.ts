@@ -84,6 +84,41 @@ app.get('/api/users/:id', async (req: Request, res: Response) => {
   }
 });
 
+// Get random words of the same type as given word id
+app.get('/api/words/:id/similar', async (req: Request, res: Response) => {
+  try {
+    const db = createDatabaseConnection();
+    const { id } = req.params;
+    
+    const wordId = Number(id);
+    if (isNaN(wordId)) {
+      return res.status(400).json({ error: 'Invalid word ID' });
+    }
+    
+    // Get the reference word
+    const referenceWord = await db.selectFrom('word')
+      .where('id', '=', wordId)
+      .select(['part_of_speech'])
+      .executeTakeFirst();
+    
+    if (!referenceWord) {
+      return res.status(404).json({ error: 'Word not found' });
+    }
+    
+    // Get words of the same type
+    const similarWords = await db.selectFrom('word')
+      .where('id', '!=', wordId)
+      .where('part_of_speech', '=', referenceWord.part_of_speech)
+      .selectAll()
+      .execute();
+    
+    res.json({ words: similarWords });
+  } catch (error) {
+    console.error('Error fetching similar words:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Get session questions
 app.post('/api/sessions', async (req: Request, res: Response) => {
   try {
@@ -110,18 +145,19 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
     
     const mistakeWordIds = mistakes.map(m => m.word_id);
     
-    // Generate 20 questions with distribution:
-    // - 10 Korean-English matching
-    // - 4 image matching
-    // - 2 text input (Korean writing)
-    // - 4 sentence completion
-    // - 2 from user's mistakes
-    
-    const questionCount = 20;
-    
     // Separate words into mistake and non-mistake
     const mistakeWords = words.filter(w => mistakeWordIds.includes(w.id));
     const otherWords = words.filter(w => !mistakeWordIds.includes(w.id));
+    
+    // Determine question distribution
+    let matchingCount = 12;
+    let sentenceCount = 7;
+    
+    if (mistakeWords.length > 0) {
+      // If there are mistakes, use 13 matching and 6 sentence
+      matchingCount = 13;
+      sentenceCount = 6;
+    }
     
     // Ensure we have at least 2 mistake words if available
     let selectedMistakeWords: typeof words = [];
@@ -132,7 +168,7 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
     }
     
     // Fill remaining with other words
-    const remainingCount = questionCount - selectedMistakeWords.length;
+    const remainingCount = (matchingCount + sentenceCount) - selectedMistakeWords.length;
     let selectedOtherWords: typeof words = [];
     
     if (otherWords.length >= remainingCount) {
@@ -146,7 +182,7 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
     const selectedWords = [...selectedMistakeWords, ...selectedOtherWords];
     
     // Ensure we have exactly 20 words (pad with random words if needed)
-    while (selectedWords.length < questionCount) {
+    while (selectedWords.length < 20) {
       const randomWord = words[Math.floor(Math.random() * words.length)];
       if (!selectedWords.find(w => w.id === randomWord.id)) {
         selectedWords.push(randomWord);
@@ -154,21 +190,17 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
     }
     
     // Limit to 20 words
-    const finalWords = selectedWords.slice(0, questionCount);
+    const finalWords = selectedWords.slice(0, 20);
     
     // Create questions with appropriate types
     const questions = finalWords.map((word, index) => {
       // Determine question type based on distribution
-      let questionType: 'matching' | 'image' | 'text_input' | 'sentence';
+      let questionType: 'matching' | 'sentence';
       
-      if (index < 10) {
-        questionType = 'matching'; // First 10: matching
-      } else if (index < 14) {
-        questionType = 'image'; // Next 4: image
-      } else if (index < 16) {
-        questionType = 'text_input'; // Next 2: text input
+      if (index < matchingCount) {
+        questionType = 'matching'; // First N: matching
       } else {
-        questionType = 'sentence'; // Remaining 4: sentence completion
+        questionType = 'sentence'; // Remaining: sentence completion
       }
       
       return {
@@ -186,7 +218,7 @@ app.post('/api/sessions', async (req: Request, res: Response) => {
     const session = await db.insertInto('session')
       .values({
         user_id,
-        total_questions: questionCount,
+        total_questions: 20,
         correct_answers: 0,
         time_taken_seconds: 0
       })
@@ -238,9 +270,6 @@ app.post('/api/sessions/:id/answers', async (req: Request, res: Response) => {
       }
       
       // Check if answer is correct (for matching and sentence questions)
-      // For image questions, we'll assume the user selected the correct image
-      // For text input, we'll check if the provided Korean matches
-      
       const word = await db.selectFrom('word')
         .where('id', '=', answer.word_id)
         .selectAll()
@@ -253,12 +282,6 @@ app.post('/api/sessions/:id/answers', async (req: Request, res: Response) => {
         if (answer.question_type === 'matching' || answer.question_type === 'sentence') {
           // For matching and sentence questions, check if the English translation matches
           isCorrect = answer.answer === word.english;
-        } else if (answer.question_type === 'image') {
-          // For image questions, assume correct if answer is true
-          isCorrect = answer.answer === true;
-        } else if (answer.question_type === 'text_input') {
-          // For text input, check if the provided Korean matches
-          isCorrect = answer.answer === word.korean;
         }
         
         if (isCorrect) {

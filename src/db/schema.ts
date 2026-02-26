@@ -48,12 +48,23 @@ export interface HighScoreTable {
   created_at: Generated<Date>
 }
 
+export interface SentenceQuestionTable {
+  id: Generated<number>
+  word_id: number
+  korean_sentence: string
+  correct_answer: string
+  distractor_word1_id: string
+  distractor_word2_id: string
+  distractor_word3_id: string
+}
+
 export interface Database {
   word: WordTable
   user: UserTable
   session: SessionTable
   mistake: MistakeTable
   high_score: HighScoreTable
+  sentence_question: SentenceQuestionTable
 }
 
 export function createDatabaseConnection(): Kysely<Database> {

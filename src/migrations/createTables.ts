@@ -62,6 +62,33 @@ async function main() {
       .addColumn('created_at', 'timestamp', (col) => col.defaultTo('now()'))
       .execute();
 
+    // Create sentence_question table                                                                                              
+    await db.schema                                                                                                                                          
+      .createTable('sentence_question')                                                                                                                      
+      .ifNotExists()                                                                                                                                         
+      .addColumn('id', 'serial', (col) => col.primaryKey())                                                                                                  
+      .addColumn('word_id', 'integer', (col) => col.references('word.id').onDelete('cascade'))                                                               
+      .addColumn('korean_sentence', 'text', (col) => col.notNull())                                                                                          
+      .addColumn('correct_answer', 'text', (col) => col.notNull())                                                                                           
+      .addColumn('distractor_word1_id', 'integer', (col) => col.references('word.id').onDelete('cascade'))
+      .addColumn('distractor_word2_id', 'integer', (col) => col.references('word.id').onDelete('cascade'))
+      .addColumn('distractor_word3_id', 'integer', (col) => col.references('word.id').onDelete('cascade'))                                                                              
+      .execute()   
+
+    await db.schema                                                                                                                                          
+      .alterTable('sentence_question')                                                                                                                                                                                                   
+      .dropColumn('distractor_word1_id')
+      .dropColumn('distractor_word2_id')
+      .dropColumn('distractor_word3_id')
+      .execute()   
+
+    await db.schema                                                                                                                                          
+      .alterTable('sentence_question')                                                                                                                                                                                                   
+      .addColumn('distractor_word1_id', 'text')
+      .addColumn('distractor_word2_id', 'text')
+      .addColumn('distractor_word3_id', 'text')
+      .execute()   
+
     console.log('Tables created successfully!');
   } catch (error) {
     console.error('Error creating tables:', error);
