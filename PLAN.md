@@ -28,14 +28,12 @@
 - [x] 4.4: Create basic layout and navigation structure
 
 ## Phase 5: UI Components Implementation
-- [ ] 5.1: Create nickname input screen
-- [ ] 5.2: Create Korean-English matching question component (10/20)
-- [ ] 5.3: Create image matching question component (4/20)
-- [ ] 5.4: Create text input question component for Korean writing (2/20)
-- [ ] 5.5: Create sentence completion question component (4/20)
-- [ ] 5.6: Integrate previous mistakes into question flow (2/20)
-- [ ] 5.7: Create session results display component
-- [ ] 5.8: Create high scores display component (personal and global top 10)
+- [x] 5.1: Create nickname input screen
+- [x] 5.2: Create Korean-English matching question component
+- [x] 5.5: Create sentence completion question component
+- [x] 5.6: Integrate previous mistakes into question flow
+- [x] 5.7: Create session results display component
+- [x] 5.8: Create high scores display component (personal and global top 10)
 
 ## Phase 6: Integration and Polish
 - [ ] 6.1: Connect frontend to backend API
