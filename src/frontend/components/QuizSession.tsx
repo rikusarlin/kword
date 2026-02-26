@@ -10,6 +10,14 @@ interface Question {
   memorable_rule?: string | null;
   question_type: 'matching' | 'sentence';
 }
+
+interface Card {
+  id: string;
+  questionId: number;
+  text: string;
+  isKorean: boolean;
+}
+
 const QuizSession = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,15 +26,15 @@ const QuizSession = () => {
   const { userId, nickname } = location.state || {};
   
   const [questions, setQuestions] = useState<Question[]>([]);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [currentMatchingIndex, setCurrentMatchingIndex] = useState(0);
+  const [selectedCards, setSelectedCards] = useState<Card[]>([]);
+  const [matchedPairs, setMatchedPairs] = useState<number[]>([]);
   const [answers, setAnswers] = useState<{ questionId: number; selectedAnswer: string }[]>([]);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!userId) {
-      console.log(`selectionOption ${selectedOption}`)
       navigate('/');
       return;
     }
@@ -47,7 +55,14 @@ const QuizSession = () => {
         }
         
         const data = await response.json();
-        setQuestions(data.questions || []);
+        // Sort questions: matching first, then sentence
+        const sortedQuestions = [...(data.questions || [])].sort((a, b) => {
+          if (a.question_type === 'matching' && b.question_type !== 'matching') return -1;
+          if (a.question_type !== 'matching' && b.question_type === 'matching') return 1;
+          return 0;
+        });
+        
+        setQuestions(sortedQuestions);
       } catch (err) {
         setError('Failed to load questions. Please try again.');
         console.error(err);
@@ -59,7 +74,102 @@ const QuizSession = () => {
     fetchQuestions();
   }, [userId, navigate]);
 
-  const handleAnswer = (wordId: number, answer: string) => {
+  // Get matching questions
+  const matchingQuestions = questions.filter(q => q.question_type === 'matching');
+  const sentenceQuestions = questions.filter(q => q.question_type === 'sentence');
+  
+  // Create cards for matching (Korean and English versions)
+  const createMatchingDeck = () => {
+    // Get current set of matching questions (4 cards at a time)
+    const startIndex = currentMatchingIndex;
+    const endIndex = Math.min(startIndex + 4, matchingQuestions.length);
+    const currentSet = matchingQuestions.slice(startIndex, endIndex);
+    
+    // Create cards: one Korean and one English for each question
+    const deck: Card[] = [];
+    currentSet.forEach((question, index) => {
+      // Korean card
+      deck.push({
+        id: `k-${question.id}`,
+        questionId: question.id,
+        text: question.korean,
+        isKorean: true
+      });
+      
+      // English card
+      deck.push({
+        id: `e-${question.id}`,
+        questionId: question.id,
+        text: question.english,
+        isKorean: false
+      });
+    });
+    
+    // Sort the deck: Korean cards first, then English cards
+    return deck.sort((a, b) => {
+      if (a.isKorean && !b.isKorean) return -1;
+      if (!a.isKorean && b.isKorean) return 1;
+      return 0;
+    });
+  };
+  
+  const currentDeck = createMatchingDeck();
+  
+  const isMatchingPhase = currentMatchingIndex < matchingQuestions.length;
+  const currentQuestion = isMatchingPhase 
+    ? matchingQuestions[currentMatchingIndex] 
+    : sentenceQuestions[currentMatchingIndex - matchingQuestions.length];
+
+  const handleCardClick = (card: Card) => {
+    // Skip if already matched or selected
+    if (matchedPairs.includes(card.questionId)) return;
+    if (selectedCards.some(c => c.id === card.id)) return;
+    
+    // Add to selection
+    const newSelection = [...selectedCards, card];
+    setSelectedCards(newSelection);
+    
+    // Check if we have 2 cards selected
+    if (newSelection.length === 2) {
+      // Check if they match (same questionId but different card id)
+      const [first, second] = newSelection;
+      
+      if (first.questionId === second.questionId && first.id !== second.id) {
+        // Match found
+        setMatchedPairs(prev => [...prev, first.questionId]);
+        setSelectedCards([]);
+        
+        // Record the answer
+        setAnswers(prev => {
+          const existing = prev.find(a => a.questionId === first.questionId);
+          if (!existing) {
+            return [...prev, { questionId: first.questionId, selectedAnswer: second.text }];
+          }
+          return prev;
+        });
+      } else {
+        // No match - show error briefly then clear selection
+        setTimeout(() => {
+          setSelectedCards([]);
+        }, 500);
+      }
+    }
+    
+    // Move to next question if we've completed a pair
+    if (selectedCards.length === 1 && newSelection.length === 2) {
+      // Completed a pair
+      if (currentMatchingIndex % 4 === 1 || currentMatchingIndex % 4 === 3) {
+        setCurrentMatchingIndex(prev => prev + 1);
+      }
+    } else if (newSelection.length === 0 && selectedCards.length > 0) {
+      // Cleared selection
+      if (currentMatchingIndex % 4 === 2 || currentMatchingIndex % 4 === 3) {
+        setCurrentMatchingIndex(prev => prev + 1);
+      }
+    }
+  };
+
+  const handleSentenceAnswer = (wordId: number, answer: string) => {
     // Update answers array
     setAnswers(prev => {
       const existing = prev.find(a => a.questionId === wordId);
@@ -70,8 +180,6 @@ const QuizSession = () => {
       }
       return [...prev, { questionId: wordId, selectedAnswer: answer }];
     });
-    
-    setSelectedOption(answer);
   };
 
   const handleSubmit = async () => {
@@ -146,101 +254,67 @@ const QuizSession = () => {
       </div>
     );
   }
-
-  const currentQuestion = questions[currentQuestionIndex];
   
-  return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="container mx-auto px-4 max-w-3xl">
-        {/* Progress Bar */}
-        <div className="mb-6 bg-gray-200 rounded-full h-4 overflow-hidden">
-          <div 
-            className="bg-gradient-to-r from-blue-500 to-indigo-600 h-full transition-all duration-300 ease-out"
-            style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
-          ></div>
-        </div>
+  if (isMatchingPhase) {
+    // Calculate which set of 4 cards we're on
+    const matchingSetIndex = Math.floor(currentMatchingIndex / 2);
+    const currentMatchingSet = matchingQuestions.slice(
+      matchingSetIndex * 4, 
+      (matchingSetIndex + 1) * 4
+    );
+    
+    // Check if we've completed all matching questions
+    if (matchingSetIndex >= Math.ceil(matchingQuestions.length / 2)) {
+      // Move to sentence questions
+      return (
+        <div className="min-h-screen bg-gray-50 py-8">
+          <div className="container mx-auto px-4 max-w-3xl">
+            {/* Progress Bar */}
+            <div className="mb-6 bg-gray-200 rounded-full h-4 overflow-hidden">
+              <div 
+                className="bg-gradient-to-r from-blue-500 to-indigo-600 h-full transition-all duration-300 ease-out"
+                style={{ 
+                  width: `${(matchingQuestions.length / questions.length) * 100}%` 
+                }}
+              ></div>
+            </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
-          {/* Question Header */}
-          <div className="flex justify-between items-center mb-4 text-sm text-gray-500">
-            <span>Question {currentQuestionIndex + 1} of {questions.length}</span>
-            <span>User: {nickname}</span>
-          </div>
-
-          {/* Question Content */}
-          <div className="mb-6">
-            {currentQuestion.image_url && (
-              <img 
-                src={currentQuestion.image_url} 
-                alt="Vocabulary image" 
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-            )}
-            
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              {currentQuestion.korean}
-            </h2>
-            
-            <p className="text-gray-600 mb-4">
-              Part of Speech: {currentQuestion.part_of_speech}
-            </p>
-            
-            {currentQuestion.memorable_rule && (
-              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg mb-4">
-                <p className="text-yellow-700 font-medium">💡 Tip: {currentQuestion.memorable_rule}</p>
+            <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
+              {/* Question Header */}
+              <div className="flex justify-between items-center mb-4 text-sm text-gray-500">
+                <span>Question {matchingQuestions.length + 1} of {questions.length}</span>
+                <span>User: {nickname}</span>
               </div>
-            )}
-          </div>
 
-          {/* Options */}
-          <div className="space-y-3">
-            {questions.map((q) => (
-              <button
-                key={q.id}
-                onClick={() => handleAnswer(q.id, q.english)}
-                className={`w-full p-4 text-left rounded-lg transition-all ${
-                  answers.find(a => a.questionId === q.id)?.selectedAnswer === q.english
-                    ? 'bg-green-500 text-white shadow-lg transform scale-[1.02]'
-                    : 'bg-gray-100 hover:bg-blue-50 text-gray-800'
-                }`}
-              >
-                <div className="flex items-center">
-                  <span className={`w-6 h-6 rounded-full border flex items-center justify-center mr-3 ${
-                    answers.find(a => a.questionId === q.id)?.selectedAnswer === q.english
-                      ? 'border-white' : 'border-gray-400'
-                  }`}>
-                    {answers.find(a => a.questionId === q.id)?.selectedAnswer === q.english && (
-                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    )}
-                  </span>
-                  <span className="font-medium">{q.english}</span>
+              {/* Sentence Questions */}
+              {sentenceQuestions.map((q, index) => (
+                <div key={q.id} className="mb-6">
+                  <h3 className="text-xl font-semibold mb-2">Sentence {index + 1}</h3>
+                  <div className="bg-blue-50 p-4 rounded-lg mb-2">
+                    {/* Simplified sentence display - you can enhance this */}
+                    <p className="text-gray-800">{q.korean}</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    {questions.filter(otherQ => otherQ.id !== q.id && otherQ.part_of_speech === q.part_of_speech).slice(0, 4).map((option) => (
+                      <button
+                        key={option.id}
+                        onClick={() => handleSentenceAnswer(q.id, option.english)}
+                        className={`w-full p-3 text-left rounded-lg transition-all ${
+                          answers.find(a => a.questionId === q.id)?.selectedAnswer === option.english
+                            ? 'bg-green-500 text-white shadow-lg'
+                            : 'bg-gray-100 hover:bg-blue-50 text-gray-800'
+                        }`}
+                      >
+                        {option.english}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </button>
-            ))}
-          </div>
+              ))}
 
-          {/* Navigation */}
-          <div className="mt-8 flex justify-between items-center">
-            {currentQuestionIndex > 0 && (
-              <button
-                onClick={() => setCurrentQuestionIndex(prev => prev - 1)}
-                className="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors"
-              >
-                Previous
-              </button>
-            )}
-            
-            {currentQuestionIndex < questions.length - 1 ? (
-              <button
-                onClick={() => setCurrentQuestionIndex(prev => prev + 1)}
-                className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 ml-auto transition-colors"
-              >
-                Next
-              </button>
-            ) : (
-              <div className="ml-auto">
+              {/* Navigation */}
+              <div className="mt-8 flex justify-end">
                 <button
                   onClick={handleSubmit}
                   className="bg-green-600 text-white py-3 px-8 rounded-lg hover:bg-green-700 transition-colors font-bold shadow-lg"
@@ -248,7 +322,171 @@ const QuizSession = () => {
                   Submit Answers
                 </button>
               </div>
-            )}
+            </div>
+          </div>
+        </div>
+      );
+    }
+    
+    return (
+      <div className="min-h-screen bg-gray-50 py-8">
+        <div className="container mx-auto px-4 max-w-3xl">
+          {/* Progress Bar */}
+          <div className="mb-6 bg-gray-200 rounded-full h-4 overflow-hidden">
+            <div 
+              className="bg-gradient-to-r from-blue-500 to-indigo-600 h-full transition-all duration-300 ease-out"
+              style={{ 
+                width: `${((currentMatchingIndex + 1) / (matchingQuestions.length || 1)) * 100}%` 
+              }}
+            ></div>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
+            {/* Question Header */}
+            <div className="flex justify-between items-center mb-4 text-sm text-gray-500">
+              <span>Matching {Math.floor(currentMatchingIndex / 2) + 1}</span>
+              <span>User: {nickname}</span>
+            </div>
+
+            {/* Matching Cards */}
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              {currentDeck.map((card) => {
+                const isSelected = selectedCards.some(c => c.id === card.id);
+                const isMatched = matchedPairs.includes(card.questionId);
+                
+                return (
+                  <button
+                    key={card.id}
+                    onClick={() => handleCardClick(card)}
+                    disabled={isMatched || selectedCards.length >= 2}
+                    className={`p-6 rounded-xl transition-all ${
+                      isMatched
+                        ? 'bg-green-500 text-white shadow-lg'
+                        : isSelected
+                          ? 'bg-blue-500 text-white shadow-lg'
+                          : 'bg-gray-100 hover:bg-blue-50 text-gray-800'
+                    }`}
+                  >
+                    <div className="text-center">
+                      {card.isKorean && matchingQuestions.find(q => q.id === card.questionId)?.image_url && (
+                        <img 
+                          src={matchingQuestions.find(q => q.id === card.questionId)!.image_url!} 
+                          alt="Vocabulary image" 
+                          className="w-full h-32 object-cover rounded-lg mb-4"
+                        />
+                      )}
+                      
+                      <h3 className="text-xl font-bold">{card.text}</h3>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Instructions */}
+            <div className="text-center mb-6">
+              {selectedCards.length === 0 && (
+                <p className="text-gray-600">Click on a card to select it</p>
+              )}
+              {selectedCards.length === 1 && (
+                <p className="text-blue-600 font-medium">Now click on the matching word</p>
+              )}
+              {selectedCards.length === 2 && (
+                <p className="text-gray-600">Checking match...</p>
+              )}
+            </div>
+
+            {/* Navigation */}
+            <div className="mt-8 flex justify-between items-center">
+              {currentMatchingIndex > 0 && (
+                <button
+                  onClick={() => setCurrentMatchingIndex(prev => prev - 1)}
+                  className="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors"
+                >
+                  Previous
+                </button>
+              )}
+              
+              {currentMatchingIndex < matchingQuestions.length - 4 ? (
+                <button
+                  onClick={() => setCurrentMatchingIndex(prev => prev + 4)}
+                  className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 ml-auto transition-colors"
+                >
+                  Next
+                </button>
+              ) : (
+                <div className="ml-auto">
+                  <button
+                    onClick={handleSubmit}
+                    className="bg-green-600 text-white py-3 px-8 rounded-lg hover:bg-green-700 transition-colors font-bold shadow-lg"
+                  >
+                    Submit Answers
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Sentence questions view
+  return (
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="container mx-auto px-4 max-w-3xl">
+        {/* Progress Bar */}
+        <div className="mb-6 bg-gray-200 rounded-full h-4 overflow-hidden">
+          <div 
+            className="bg-gradient-to-r from-blue-500 to-indigo-600 h-full transition-all duration-300 ease-out"
+            style={{ 
+              width: `${((matchingQuestions.length + (currentMatchingIndex - matchingQuestions.length) + 1) / questions.length) * 100}%` 
+            }}
+          ></div>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
+          {/* Question Header */}
+          <div className="flex justify-between items-center mb-4 text-sm text-gray-500">
+            <span>Question {currentMatchingIndex + 1} of {questions.length}</span>
+            <span>User: {nickname}</span>
+          </div>
+
+          {/* Sentence Questions */}
+          {sentenceQuestions.map((q, index) => (
+            <div key={q.id} className="mb-6">
+              <h3 className="text-xl font-semibold mb-2">Sentence {index + 1}</h3>
+              <div className="bg-blue-50 p-4 rounded-lg mb-2">
+                {/* Simplified sentence display - you can enhance this */}
+                <p className="text-gray-800">{q.korean}</p>
+              </div>
+              
+              <div className="space-y-2">
+                {questions.filter(otherQ => otherQ.id !== q.id && otherQ.part_of_speech === q.part_of_speech).slice(0, 4).map((option) => (
+                  <button
+                    key={option.id}
+                    onClick={() => handleSentenceAnswer(q.id, option.english)}
+                    className={`w-full p-3 text-left rounded-lg transition-all ${
+                      answers.find(a => a.questionId === q.id)?.selectedAnswer === option.english
+                        ? 'bg-green-500 text-white shadow-lg'
+                        : 'bg-gray-100 hover:bg-blue-50 text-gray-800'
+                    }`}
+                  >
+                    {option.english}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Navigation */}
+          <div className="mt-8 flex justify-end">
+            <button
+              onClick={handleSubmit}
+              className="bg-green-600 text-white py-3 px-8 rounded-lg hover:bg-green-700 transition-colors font-bold shadow-lg"
+            >
+              Submit Answers
+            </button>
           </div>
         </div>
       </div>

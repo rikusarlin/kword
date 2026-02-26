@@ -297,6 +297,7 @@ app.post('/api/sessions/:id/answers', async (req: Request, res: Response) => {
       return res.status(400).json({ error: 'Answers are required' });
     }
     
+    console.log(`session_id: ${session_id}`)
     // Get session
     const session = await db.selectFrom('session')
       .where('id', '=', Number(session_id))
