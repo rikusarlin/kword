@@ -351,7 +351,7 @@ app.post('/api/sessions/:id/answers', async (req: Request, res: Response) => {
     
     // Calculate correct answers and track mistakes
     let correctAnswers = 0;
-    const mistakesToRegister = [];
+    const mistakesToRegister: { session_id: number; word_id: number; question_type: string }[] = [];
     
     for (const answer of answers) {
       if (!answer.questionId || answer.selectedAnswer === undefined) {
@@ -372,10 +372,11 @@ app.post('/api/sessions/:id/answers', async (req: Request, res: Response) => {
         if (isCorrect) {
           correctAnswers++;
         } else {
-          // Record mistake
+          // Record mistake with question_type
           mistakesToRegister.push({
             session_id: session_id,
-            word_id: answer.questionId
+            word_id: answer.questionId,
+            question_type: 'matching' // Default to matching for now
           });
         }
       }
